@@ -1,0 +1,27 @@
+{
+    "dev_powertool": [
+        {
+            "dev_credentials": [
+                {
+                    "EMAIL": "charles.delafontaine@gmail.com",
+                    "PASSWORD": "Charles1"
+                }
+            ]
+        }
+    ],
+    "test_mainpage": [
+        {
+            "active": "True",
+            "check_connection_button": "True",
+            "check_error_generation": "True",
+            "check_login_credentials": "True",
+            "check_urls": "True",
+            "constants": [
+                {
+                    "POLYSAFE_MAINPAGE_URL": "http://localhost/polysafe/erp/index.php"
+                }
+            ],
+            "send_fake_login_credentials": "True"
+        }
+    ]
+}
