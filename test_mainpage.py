@@ -111,8 +111,8 @@ class TestMainpage(TestsInterface):
         while True:
             try:
                 super().load_constants()
-                self.__POLYSAFE_MAINPAGE_URL = self.jsondump[TEST_MAINPAGE_REP][CONSTANTS_REP][
-                    POLYSAFE_MAINPAGE_URL_REP]
+                print(self.jsondump)
+                self.__POLYSAFE_MAINPAGE_URL = self.jsondump[TEST_MAINPAGE_REP][CONSTANTS_REP][POLYSAFE_MAINPAGE_URL_REP]
                 self.__ACTIVE = self.__POLYSAFE_MAINPAGE_URL[ACTIVE_REP]
                 self.__CHECK_URLS = self.__POLYSAFE_MAINPAGE_URL[CHECK_URLS_REP]
                 self.__CHECK_LOGIN_CREDENTIALS = self.__POLYSAFE_MAINPAGE_URL[CHECK_LOGIN_CREDENTIALS_REP]

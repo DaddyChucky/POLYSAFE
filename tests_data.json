@@ -1,14 +1,20 @@
 {
-    "dev_powertool": {
-        "dev_credentials": {
-            "EMAIL": "charles.delafontaine@gmail.com",
-            "PASSWORD": "Charles1"
+    "dev_powertool": [
+        {
+            "dev_credentials": [
+                {
+                    "EMAIL": "charles.delafontaine@gmail.com",
+                    "PASSWORD": "Charles1"
+                }
+            ]
         }
-    },
-    "test_mainpage": {
-        "active": "True",
-        "check_error_generation": "True",
-        "check_login_credentials": "True",
-        "check_urls": "True",
-        "constants": {
-            
+    ],
+    "test_mainpage": [
+        {
+            "active": true,
+            "check_error_generation": true,
+            "check_login_credentials": true,
+            "check_urls": true,
+            "constants": [
+                {
+                    
