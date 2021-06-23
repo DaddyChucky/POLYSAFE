@@ -1,3 +1,11 @@
+"""
+    Polysafe - User testing.
+    Description:    JsonFile class definition.
+    File name:      jsonfile.py
+    Author:         Charles De Lafontaine
+    Last edition:   06/22/2021
+"""
+
 from constants import *
 from bg_txt_color import *
 
@@ -5,62 +13,15 @@ import json
 import os
 
 
-class JSONFile:
-    def __init__(
-            self,
-            file_name="\\tests_data.json",
-            file_mode_create='w',
-            file_mode_read='r',
-            file_encoding='utf-8',
-            file_ensure_ascii=False,
-            file_sort_keys=True,
-            file_indent=4,
-            pwd_override_changed=["yes", "y", "oui", "o"],
-            pwd_override_unchanged=["no", "n", "non"],
-            default_data=
-            {
-                DEV_POWERTOOL_REP: [
-                    {
-                        DEV_CREDENTIALS_REP:
-                            [
-                                {
-                                    EMAIL_REP: "charles.delafontaine@gmail.com",
-                                    PASSWORD_REP: "Charles1"
-                                }
-                            ]
-                    }
-                ],
-                TEST_MAINPAGE_REP:
-                    [
-                        {
-                            ACTIVE_REP: "True",
-                            CHECK_URLS_REP: "True",
-                            CHECK_LOGIN_CREDENTIALS_REP: "True",
-                            SEND_FAKE_LOGIN_CREDENTIALS_REP: "True",
-                            CHECK_ERROR_GENERATION_REP: "True",
-                            CONSTANTS_REP:
-                                [
-                                    {
-                                        POLYSAFE_MAINPAGE_URL_REP: "blue",
-                                        CONNECTION_TEXT_REP: "Connexion »",
-                                        LIMIT_OF_RETRIES_REP: "0",
-                                        EXPECTED_CONNECTION_URL_REP: "http://localhost/polysafe/erp/users/login.php",
-                                        EMAIL_ID_REP: "username",
-                                        PASSWORD_ID_REP: "password",
-                                        CONNECTION_BTN_ID_REP: "next_button",
-                                        INVALID_EMAIL_REP: "invalid.email@gmail.ca",
-                                        INVALID_PASSWORD_REP: "password1234",
-                                        CLOSE_BUTTON_REP: "close",
-                                        FORGOT_BUTTON_LINK_REP: "Mot de passe oub",
-                                        CREATE_ACCOUNT_LINK_REP: "Créer un compte",
-                                        ABOUT_LINK_REP: "propos",
-                                        SUPPORT_LINK_REP: "Support"
-                                    }
-                                ]
-                        }
-                    ]
-            }
-    ):
+class JsonFile:
+    def __init__(self,
+                 file_name="\\tests_data.json",
+                 file_mode_create='w',
+                 file_mode_read='r',
+                 file_encoding='utf-8',
+                 file_ensure_ascii=False,
+                 file_sort_keys=True,
+                 file_indent=4):
         self.__FILE_NAME = file_name
         self.__FILE_MODE_CREATE = file_mode_create
         self.__FILE_MODE_READ = file_mode_read
@@ -68,9 +29,50 @@ class JSONFile:
         self.__FILE_ENSURE_ASCII = file_ensure_ascii
         self.__FILE_SORT_KEYS = file_sort_keys
         self.__FILE_INDENT = file_indent
-        self.__PWD_OVERRIDE_CHANGED = pwd_override_changed
-        self.__PWD_OVERRIDE_UNCHANGED = pwd_override_unchanged
-        self.__DEFAULT_DATA = default_data
+        self.__PWD_OVERRIDE_CHANGED = ["yes", "y", "oui", "o"]
+        self.__PWD_OVERRIDE_UNCHANGED = ["no", "n", "non"]
+        self.__DEFAULT_DATA = {
+            DEV_POWERTOOL_REP: [
+                {
+                    DEV_CREDENTIALS_REP:
+                        [
+                            {
+                                EMAIL_REP: "charles.delafontaine@gmail.com",
+                                PASSWORD_REP: "Charles1"
+                            }
+                        ]
+                }
+            ],
+            TEST_MAINPAGE_REP:
+                [
+                    {
+                        ACTIVE_REP: "True",
+                        CHECK_URLS_REP: "True",
+                        CHECK_LOGIN_CREDENTIALS_REP: "True",
+                        SEND_FAKE_LOGIN_CREDENTIALS_REP: "True",
+                        CHECK_ERROR_GENERATION_REP: "True",
+                        CONSTANTS_REP:
+                            [
+                                {
+                                    POLYSAFE_MAINPAGE_URL_REP: "blue",
+                                    CONNECTION_TEXT_REP: "Connexion »",
+                                    LIMIT_OF_RETRIES_REP: "0",
+                                    EXPECTED_CONNECTION_URL_REP: "http://localhost/polysafe/erp/users/login.php",
+                                    EMAIL_ID_REP: "username",
+                                    PASSWORD_ID_REP: "password",
+                                    CONNECTION_BTN_ID_REP: "next_button",
+                                    INVALID_EMAIL_REP: "invalid.email@gmail.ca",
+                                    INVALID_PASSWORD_REP: "password1234",
+                                    CLOSE_BUTTON_REP: "close",
+                                    FORGOT_BUTTON_LINK_REP: "Mot de passe oub",
+                                    CREATE_ACCOUNT_LINK_REP: "Créer un compte",
+                                    ABOUT_LINK_REP: "propos",
+                                    SUPPORT_LINK_REP: "Support"
+                                }
+                            ]
+                    }
+                ]
+        }
         self.__OS = os
 
     @property

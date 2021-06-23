@@ -1,4 +1,10 @@
-# CONSTANTS
+"""
+    Polysafe - User testing.
+    Description:    Constants.
+    File name:      constants.py
+    Author:         Charles De Lafontaine
+    Last edition:   06/22/2021
+"""
 
 CONSTANTS_REP = "constants"
 

@@ -1,5 +1,9 @@
 """
-    Print color functions depending on severity
+    Polysafe - User testing.
+    Description:    Colored printing depending on message severity.
+    File name:      bg_txt_color.py
+    Author:         Charles De Lafontaine
+    Last edition:   06/22/2021
 """
 
 
