@@ -1,20 +1,31 @@
 {
-    "dev_powertool": [
-        {
-            "dev_credentials": [
-                {
-                    "EMAIL": "charles.delafontaine@gmail.com",
-                    "PASSWORD": "Charles1"
-                }
-            ]
+    "dev_powertool": {
+        "dev_credentials": {
+            "EMAIL": "charles.delafontaine@gmail.com",
+            "PASSWORD": "Charles1"
         }
-    ],
-    "test_mainpage": [
-        {
-            "active": true,
-            "check_error_generation": true,
-            "check_login_credentials": true,
-            "check_urls": true,
-            "constants": [
-                {
-                    
+    },
+    "test_mainpage": {
+        "active": true,
+        "check_error_generation": true,
+        "check_login_credentials": true,
+        "check_urls": true,
+        "constants": {
+            "ABOUT_LNK_NAME": "propos",
+            "CLOSE_BUTTON_NAME": "close",
+            "CONNECTION_BTN_ID": "next_button",
+            "CONNECTION_TEXT": "Connexion »",
+            "CREATE_ACCOUNT_LNK_NAME": "Créer un compte",
+            "EMAIL_ID": "username",
+            "EXPECTED_CONNECTION_URL": "http://localhost/polysafe_code/erp/users/login.php",
+            "FORGOT_BUTTON_LNK_NAME": "Mot de passe oub",
+            "INVALID_EMAIL_EXAMPLE": "invalid.email@gmail.ca",
+            "INVALID_PASSWORD_EXAMPLE": "password1234",
+            "LIMIT_OF_RETRIES": 0,
+            "PASSWORD_ID": "password",
+            "POLYSAFE_MAINPAGE_URL": "http://localhost/polysafe_code/erp/index.php",
+            "SUPPORT_LNK_NAME": "Support"
+        },
+        "send_fake_login_credentials": true
+    }
+}

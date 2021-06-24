@@ -61,15 +61,17 @@ class TestsInterface:
 
     def load_constants(self, is_root: bool = False) -> None:
         try:
-            self.__POLYSAFE_DEVELOPER_EMAIL = self.jsondump[DEV_POWERTOOL_REP][DEV_CREDENTIALS_REP][EMAIL_REP]
+            self.__POLYSAFE_DEVELOPER_EMAIL = self.jsondump[DEV_POWERTOOL_REP][DEV_CREDENTIALS_REP][EMAIL_REP] 
             self.__POLYSAFE_DEVELOPER_PASSWORD = self.jsondump[DEV_POWERTOOL_REP][DEV_CREDENTIALS_REP][PASSWORD_REP]
 
         # If one or more constants are inaccessible
         except TypeError or KeyError:
-            print_failure("INTERFACE_LOAD_CST", "One or many errors in loading constants.")
+            print_failure("INTERFACE_LOAD_CST",
+                          "One or many errors in loading constants.")
 
             if is_root:
-                print_header("MAINPAGE_LD_CST", "Retrying to read json file...")
+                print_header("MAINPAGE_LD_CST",
+                             "Retrying to read json file...")
                 with open(self.jsonfile.os.getcwd() + self.jsonfile.file_name, self.jsonfile.file_mode_read,
                           encoding=self.jsonfile.file_encoding) as json_file:
                     self.jsonfile.json_read_failure(json_file)
