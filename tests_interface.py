@@ -6,8 +6,12 @@
     Last edition:   06/22/2021
 """
 
-from selenium import webdriver
 from jsonfile import *
+from selenium import webdriver
+
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.expected_conditions import staleness_of
+from contextlib import contextmanager
 
 
 class TestsInterface:
@@ -53,6 +57,18 @@ class TestsInterface:
     @property
     def jsondump(self) -> dict:
         return self.__JSONDUMP
+
+    """
+        Verify that page has loaded before making any moves
+    """
+    @contextmanager
+    def wait_for_page_load(self,
+                           timeout=30):  # Source: https://www.cloudbees.com/blog/get-selenium-to-wait-for-page-load/
+        old_page = self.driver.find_element_by_tag_name('html')
+        yield
+        WebDriverWait(self.driver, timeout).until(
+            staleness_of(old_page)
+        )
 
     """
         Verify that json contains all constants for TestsInterface

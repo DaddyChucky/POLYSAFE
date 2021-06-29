@@ -5,6 +5,71 @@
             "PASSWORD": "Charles1"
         }
     },
+    "test_creation": {
+        "active": true,
+        "constants": {
+            "ACCOUNT_CREATION_CONTRACT_LNK": "https://polysafe.polymtl.ca/uploads/static/documents/contrat_adhesion.pdf",
+            "CHART_OF_PAYMENT_LNK": "https://polysafe.polymtl.ca/uploads/static/documents/contrat_paiement.pdf",
+            "INVALID_CELLPHONE_NUMBER_LIST": [
+                "18008001010",
+                "8!97770909",
+                "abcdefghgh",
+                "",
+                " "
+            ],
+            "INVALID_EMAIL_LIST": [
+                "f@domaineinvalide.com",
+                " ",
+                "",
+                "???@polymtl.ca"
+            ],
+            "INVALID_NAME_LIST": [
+                " ",
+                "Charles11",
+                "",
+                "IncroYABLE!"
+            ],
+            "INVALID_PASSWORD_LIST": [
+                "af214",
+                "***   *",
+                "motdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplong"
+            ],
+            "INVALID_REGISTRATION_NUMBER_LIST": [
+                "519859015819058",
+                "",
+                "9FAFX",
+                "2*60259"
+            ],
+            "LEGAL_LNK": "https://polysafe.polymtl.ca/uploads/static/documents/mention_legale.pdf",
+            "LIMIT_OF_RETRIES": 0,
+            "POLYSAFE_CREATE_ACCOUNT_URL": "http://localhost/polysafe_code/erp/users/join.php",
+            "VALID_CELLPHONE_NUMBER_LIST": [
+                "1234567890",
+                "8195551010",
+                "5144440101"
+            ],
+            "VALID_EMAIL_LIST": [
+                "poly.mtl@hotmail.ca",
+                "polymtl.del@gmail.com",
+                "charbel-gendron@polymtl.ca"
+            ],
+            "VALID_NAME_LIST": [
+                "Vincent",
+                "Timothé",
+                "Gertrude"
+            ],
+            "VALID_PASSWORD_LIST": [
+                "aaaaaa",
+                "*!@*%$#(",
+                "Charles123"
+            ],
+            "VALID_REGISTRATION_NUMBER_LIST": [
+                "1823192",
+                "2076522",
+                "8904739"
+            ]
+        }
+    },
     "test_mainpage": {
         "active": true,
         "check_error_generation": true,

@@ -1,21 +1,16 @@
 """
     Polysafe - User testing.
-    Description:    TestMainpage class definition.
-    File name:      test_mainpage.py
+    Description:    TestConnection class definition.
+    File name:      test_connection.py
     Author:         Charles De Lafontaine
-    Last edition:   06/22/2021
+    Last edition:   06/29/2021
 """
 
 from tests_interface import *
-from jsonfile import *
-
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support.expected_conditions import staleness_of
-from contextlib import contextmanager
 import sys
 
 
-class TestMainpage(TestsInterface):
+class TestConnection(TestsInterface):
     def __init__(self, w_driver: webdriver) -> None:
         super().__init__(w_driver, JsonFile())
         self.__ACTIVE = None
@@ -110,17 +105,18 @@ class TestMainpage(TestsInterface):
 
         while True:
             try:
-                super().load_constants()
                 self.__ACTIVE = self.jsondump[TEST_MAINPAGE_REP][ACTIVE_REP]
                 self.__CHECK_URLS = self.jsondump[TEST_MAINPAGE_REP][CHECK_URLS_REP]
                 self.__CHECK_LOGIN_CREDENTIALS = self.jsondump[TEST_MAINPAGE_REP][CHECK_LOGIN_CREDENTIALS_REP]
                 self.__CHECK_LOGIN_CREDENTIALS = self.jsondump[TEST_MAINPAGE_REP][CHECK_LOGIN_CREDENTIALS_REP]
                 self.__SEND_FAKE_LOGIN_CREDENTIALS = self.jsondump[TEST_MAINPAGE_REP][SEND_FAKE_LOGIN_CREDENTIALS_REP]
                 self.__CHECK_ERROR_GENERATION = self.jsondump[TEST_MAINPAGE_REP][CHECK_ERROR_GENERATION_REP]
-                self.__POLYSAFE_MAINPAGE_URL = self.jsondump[TEST_MAINPAGE_REP][CONSTANTS_REP][POLYSAFE_MAINPAGE_URL_REP]
+                self.__POLYSAFE_MAINPAGE_URL = \
+                    self.jsondump[TEST_MAINPAGE_REP][CONSTANTS_REP][POLYSAFE_MAINPAGE_URL_REP]
                 self.__CONNECTION_TEXT = self.jsondump[TEST_MAINPAGE_REP][CONSTANTS_REP][CONNECTION_TEXT_REP]
                 self.__LIMIT_OF_RETRIES = self.jsondump[TEST_MAINPAGE_REP][CONSTANTS_REP][LIMIT_OF_RETRIES_REP]
-                self.__EXPECTED_CONNECTION_URL = self.jsondump[TEST_MAINPAGE_REP][CONSTANTS_REP][EXPECTED_CONNECTION_URL_REP]
+                self.__EXPECTED_CONNECTION_URL = \
+                    self.jsondump[TEST_MAINPAGE_REP][CONSTANTS_REP][EXPECTED_CONNECTION_URL_REP]
                 self.__EMAIL_ID = self.jsondump[TEST_MAINPAGE_REP][CONSTANTS_REP][EMAIL_ID_REP]
                 self.__PASSWORD_ID = self.jsondump[TEST_MAINPAGE_REP][CONSTANTS_REP][PASSWORD_ID_REP]
                 self.__CONNECTION_BTN_ID = self.jsondump[TEST_MAINPAGE_REP][CONSTANTS_REP][CONNECTION_BTN_ID_REP]
@@ -134,7 +130,7 @@ class TestMainpage(TestsInterface):
 
                 break_loop = True
 
-            except TypeError or KeyError:
+            except Exception:
                 print_failure("MAINPAGE_LD_CST",
                               "One or many errors in loading constants.")
                 print_header("MAINPAGE_LD_CST",
@@ -146,15 +142,6 @@ class TestMainpage(TestsInterface):
             if break_loop:
                 break
 
-    @contextmanager
-    def wait_for_page_load(self,
-                           timeout=30):  # Source: https://www.cloudbees.com/blog/get-selenium-to-wait-for-page-load/
-        old_page = self.driver.find_element_by_tag_name('html')
-        yield
-        WebDriverWait(self.driver, timeout).until(
-            staleness_of(old_page)
-        )
-
     def test_connection(self):
         # Load constants before actually launching the test
         self.load_constants()
@@ -165,8 +152,7 @@ class TestMainpage(TestsInterface):
             with self.wait_for_page_load(timeout=10):
                 while True:
                     try:
-                        print_header(
-                            "MAINPAGE", "Testing connection button...")
+                        print_header("MAINPAGE", "Testing account connection button...")
                         print_warning("MAINPAGE", "Slow down expected.")
                         self.driver.get(self.polysafe_mainpage_url)
                         connection_button = self.driver.find_element_by_link_text(
@@ -180,14 +166,13 @@ class TestMainpage(TestsInterface):
                         print_header(
                             "LOGIN_PAGE", "Connection button clicked, comparing URLs...")
 
-                        print(type(self.expected_connection_url),
-                              self.expected_connection_url)
                         if self.driver.current_url == self.expected_connection_url:
                             print_success("LOGIN_PAGE", "URLs are matching!")
 
                         else:
                             print_failure(
-                                "LOGIN_PAGE", "URLs are not matching (", self.driver.current_url, " vs JSON{", self.expected_connection_url, "})")
+                                "LOGIN_PAGE", "URLs are not matching (" + self.driver.current_url +
+                                              " vs JSON{" + self.expected_connection_url + "})")
                             return
 
                         if self.check_login_credentials:

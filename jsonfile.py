@@ -65,6 +65,30 @@ class JsonFile:
                             ABOUT_LINK_REP: "propos",
                             SUPPORT_LINK_REP: "Support"
                         }
+                },
+            TEST_CREATION_REP:
+                {
+                    ACTIVE_REP: True,
+                    CONSTANTS_REP:
+                        {
+                            LIMIT_OF_RETRIES_REP: 0,
+                            VALID_REGISTRATION_NUMBER_LIST_REP: ["1823192", "2076522", "8904739"],
+                            INVALID_REGISTRATION_NUMBER_LIST_REP: ["519859015819058", "", "9FAFX", "2*60259"],
+                            VALID_NAME_LIST_REP: ["Vincent", "Timothé", "Gertrude"],
+                            INVALID_NAME_LIST_REP: [" ", "Charles11", "", "IncroYABLE!"],
+                            VALID_EMAIL_LIST_REP: ["poly.mtl@hotmail.ca", "polymtl.del@gmail.com",
+                                                   "charbel-gendron@polymtl.ca"],
+                            INVALID_EMAIL_LIST_REP: ["f@domaineinvalide.com", " ", "", "???@polymtl.ca"],
+                            VALID_PASSWORD_LIST_REP: ["aaaaaa", "*!@*%$#(", "Charles123"],
+                            INVALID_PASSWORD_LIST_REP: ["af214", "***   *",
+                                                        "motdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplong"],
+                            VALID_CELLPHONE_NUMBER_LIST_REP: ["1234567890", "8195551010", "5144440101"],
+                            INVALID_CELLPHONE_NUMBER_LIST_REP: ["18008001010", "8!97770909", "abcdefghgh", "", " "],
+                            ACCOUNT_CREATION_CONTRACT_LNK_REP: "https://polysafe.polymtl.ca/uploads/static/documents/contrat_adhesion.pdf",
+                            CHART_OF_PAYMENT_LNK_REP: "https://polysafe.polymtl.ca/uploads/static/documents/contrat_paiement.pdf",
+                            LEGAL_LNK_REP: "https://polysafe.polymtl.ca/uploads/static/documents/mention_legale.pdf",
+                            POLYSAFE_CREATE_ACCOUNT_URL_REP: "http://localhost/polysafe_code/erp/users/join.php"
+                        }
                 }
         }
 
@@ -159,6 +183,9 @@ class JsonFile:
 
         print_header("JSON_CREATION", "Dumped " + str(self.os.path.getsize(
             self.os.getcwd() + self.file_name)) + " bytes into " + self.os.getcwd() + self.file_name)
+
+        # Minor bug here, does not read correctly *to fix*
+        exit(-1)
 
     def json_read_failure(self, json_file) -> str:
         print_failure("JSON_READ",
