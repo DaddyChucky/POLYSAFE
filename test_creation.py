@@ -27,6 +27,8 @@ class TestCreation(TestsInterface):
         self.__VALID_CELLPHONE_NUMBER_LIST = None
         self.__INVALID_CELLPHONE_NUMBER_LIST = None
         self.__ACCOUNT_CREATION_CONTRACT_LNK = None
+        self.__CHART_OF_PAYMENT_LNK = None
+        self.__LEGAL_LNK = None
 
     @property
     def polysafe_create_account_url(self) -> str:
@@ -84,6 +86,14 @@ class TestCreation(TestsInterface):
     def account_creation_contract(self) -> str:
         return self.__ACCOUNT_CREATION_CONTRACT_LNK
 
+    @property
+    def chart_of_payment(self) -> str:
+        return self.__CHART_OF_PAYMENT_LNK
+
+    @property
+    def legal(self) -> str:
+        return self.__LEGAL_LNK
+
     """
         Verify that json contains all constants for TestMainpage 
     """
@@ -114,6 +124,8 @@ class TestCreation(TestsInterface):
                     self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][INVALID_CELLPHONE_NUMBER_LIST_REP]
                 self.__ACCOUNT_CREATION_CONTRACT_LNK = \
                     self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][ACCOUNT_CREATION_CONTRACT_LNK_REP]
+                self.__CHART_OF_PAYMENT_LNK = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CHART_OF_PAYMENT_LNK_REP]
+                self.__LEGAL_LNK = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][LEGAL_LNK_REP]
 
                 break_loop = True
 
@@ -133,17 +145,20 @@ class TestCreation(TestsInterface):
         # Load constants before actually launching the test
         self.load_constants()
 
-        print(self.active)
-
         if self.active:  # Only run if test is activated
             n_failures = 0
             with self.wait_for_page_load(timeout=10):
                 while True:
                     try:
                         print_header("MAINPAGE", "Testing account creation button...")
-
+                        print_warning("ACCOUNT_CREATION", "Slow down expected.")
                         self.driver.get(self.polysafe_create_account_url)
-                        print_success("LOGIN_PAGE", "All tests passed!")
+                        print_header("ACCOUNT_CREATION", "Verifying links...")
+
+                        if self.driver.find_element_by_xpath('//a[@href="' + self.account_creation_contract + '"]') is not None and self.driver.find_element_by_xpath('//a[@href="' + self.chart_of_payment + '"]') is not None and self.driver.find_element_by_xpath('//a[@href="' + self.legal + '"]') is not None:
+                            print_success("ACCOUNT_CREATION", "All links are matching!")
+
+                        print_success("ACCOUNT_CREATION", "All tests passed!")
 
                     except Exception:
                         n_failures += 1  # Increments number of failures
