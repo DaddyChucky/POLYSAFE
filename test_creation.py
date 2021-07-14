@@ -57,105 +57,209 @@ class TestCreation(TestsInterface):
     def polysafe_create_account_url(self) -> str:
         return self.__POLYSAFE_CREATE_ACCOUNT_URL
 
+    @polysafe_create_account_url.setter
+    def polysafe_create_account_url(self, new_polysafe_create_account_url: str) -> None:
+        self.__POLYSAFE_CREATE_ACCOUNT_URL = new_polysafe_create_account_url
+
     @property
     def active(self) -> bool:
         return bool(self.__ACTIVE)
+
+    @active.setter
+    def active(self, new_active: bool) -> None:
+        self.__ACTIVE = new_active
 
     @property
     def limit_of_retries(self) -> int:
         return int(self.__LIMIT_OF_RETRIES)
 
+    @limit_of_retries.setter
+    def limit_of_retries(self, new_limit_of_retries: int) -> None:
+        self.__LIMIT_OF_RETRIES = new_limit_of_retries
+
     @property
     def valid_registration_number_list(self) -> list:
         return list(self.__VALID_REGISTRATION_NUMBER_LIST)
+
+    @valid_registration_number_list.setter
+    def valid_registration_number_list(self, new_valid_registration_number_list: list) -> None:
+        self.__VALID_REGISTRATION_NUMBER_LIST = new_valid_registration_number_list
 
     @property
     def invalid_registration_number_list(self) -> list:
         return list(self.__INVALID_REGISTRATION_NUMBER_LIST)
 
+    @invalid_registration_number_list.setter
+    def invalid_registration_number_list(self, new_invalid_registration_number_list: list) -> None:
+        self.__INVALID_REGISTRATION_NUMBER_LIST = new_invalid_registration_number_list
+
     @property
     def valid_name_list(self) -> list:
         return list(self.__VALID_NAME_LIST)
+
+    @valid_name_list.setter
+    def valid_name_list(self, new_valid_name_list: list) -> None:
+        self.__VALID_NAME_LIST = new_valid_name_list
 
     @property
     def invalid_name_list(self) -> list:
         return list(self.__INVALID_NAME_LIST)
 
+    @invalid_name_list.setter
+    def invalid_name_list(self, new_invalid_name_list: list) -> None:
+        self.__INVALID_NAME_LIST = new_invalid_name_list
+
     @property
     def valid_email_list(self) -> list:
         return list(self.__VALID_EMAIL_LIST)
+
+    @valid_email_list.setter
+    def valid_email_list(self, new_valid_email_list: list) -> None:
+        self.__VALID_EMAIL_LIST = new_valid_email_list
 
     @property
     def invalid_email_list(self) -> list:
         return list(self.__INVALID_EMAIL_LIST)
 
+    @invalid_email_list.setter
+    def invalid_email_list(self, new_invalid_email_list: list) -> None:
+        self.__INVALID_EMAIL_LIST = new_invalid_email_list
+
     @property
     def valid_password_list(self) -> list:
         return list(self.__VALID_PASSWORD_LIST)
+
+    @valid_password_list.setter
+    def valid_password_list(self, new_valid_password_list: list) -> None:
+        self.__VALID_PASSWORD_LIST = new_valid_password_list
 
     @property
     def invalid_password_list(self) -> list:
         return list(self.__INVALID_PASSWORD_LIST)
 
+    @invalid_password_list.setter
+    def invalid_password_list(self, new_invalid_password_list: list) -> None:
+        self.__INVALID_PASSWORD_LIST = new_invalid_password_list
+
     @property
     def valid_cellphone_number_list(self) -> list:
         return list(self.__VALID_CELLPHONE_NUMBER_LIST)
+
+    @valid_cellphone_number_list.setter
+    def valid_cellphone_number_list(self, new_valid_cellphone_number_list: list) -> None:
+        self.__VALID_CELLPHONE_NUMBER_LIST = new_valid_cellphone_number_list
 
     @property
     def invalid_cellphone_number_list(self) -> list:
         return list(self.__INVALID_CELLPHONE_NUMBER_LIST)
 
+    @invalid_cellphone_number_list.setter
+    def invalid_cellphone_number_list(self, new_invalid_cellphone_number_list: list) -> None:
+        self.__INVALID_CELLPHONE_NUMBER_LIST = new_invalid_cellphone_number_list
+
     @property
     def account_creation_contract(self) -> str:
         return self.__ACCOUNT_CREATION_CONTRACT_LNK
+
+    @account_creation_contract.setter
+    def account_creation_contract(self, new_account_creation_contract: str) -> None:
+        self.__ACCOUNT_CREATION_CONTRACT_LNK = new_account_creation_contract
 
     @property
     def chart_of_payment(self) -> str:
         return self.__CHART_OF_PAYMENT_LNK
 
+    @chart_of_payment.setter
+    def chart_of_payment(self, new_chart_of_payment: str) -> None:
+        self.__CHART_OF_PAYMENT_LNK = new_chart_of_payment
+
     @property
     def legal(self) -> str:
         return self.__LEGAL_LNK
+
+    @legal.setter
+    def legal(self, new_legal: str) -> None:
+        self.__LEGAL_LNK = new_legal
 
     @property
     def username_id(self) -> str:
         return self.__USERNAME_ID_REP
 
+    @username_id.setter
+    def username_id(self, new_username_id: str) -> None:
+        self.__USERNAME_ID_REP = new_username_id
+
     @property
     def first_name_id(self) -> str:
         return self.__FIRST_NAME_ID_REP
+
+    @first_name_id.setter
+    def first_name_id(self, new_first_name_id: str) -> None:
+        self.__FIRST_NAME_ID_REP = new_first_name_id
 
     @property
     def last_name_id(self) -> str:
         return self.__LAST_NAME_ID_REP
 
+    @last_name_id.setter
+    def last_name_id(self, new_last_name_id: str) -> None:
+        self.__LAST_NAME_ID_REP = new_last_name_id
+
     @property
     def email_id(self) -> str:
         return self.__EMAIL_ID
+
+    @email_id.setter
+    def email_id(self, new_email_id: str) -> None:
+        self.__EMAIL_ID = new_email_id
 
     @property
     def password_id(self) -> str:
         return self.__PASSWORD_ID
 
+    @password_id.setter
+    def password_id(self, new_password_id: str) -> None:
+        self.__PASSWORD_ID = new_password_id
+
     @property
     def confirm_password_id(self) -> str:
         return self.__CONFIRM_PASSWORD_ID_REP
+
+    @confirm_password_id.setter
+    def confirm_password_id(self, new_confirm_password_id: str) -> None:
+        self.__CONFIRM_PASSWORD_ID_REP = new_confirm_password_id
 
     @property
     def cellphone_number_id(self) -> str:
         return self.__CELLPHONE_NUMBER_ID_REP
 
+    @cellphone_number_id.setter
+    def cellphone_number_id(self, new_cellphone_number_id: str) -> None:
+        self.__CELLPHONE_NUMBER_ID_REP = new_cellphone_number_id
+
     @property
     def checkbox_contract_id(self) -> str:
         return self.__CHECKBOX_CONTRACT_ID_REP
+
+    @checkbox_contract_id.setter
+    def checkbox_contract_id(self, new_checkbox_contract_id: str) -> None:
+        self.__CHECKBOX_CONTRACT_ID_REP = new_checkbox_contract_id
 
     @property
     def checkbox_chart_of_payment_id(self) -> str:
         return self.__CHECKBOX_CHART_OF_PAYMENT_ID_REP
 
+    @checkbox_chart_of_payment_id.setter
+    def checkbox_chart_of_payment_id(self, new_checkbox_chart_of_payment_id: str) -> None:
+        self.__CHECKBOX_CHART_OF_PAYMENT_ID_REP = new_checkbox_chart_of_payment_id
+
     @property
     def checkbox_legal_id(self) -> str:
         return self.__CHECKBOX_LEGAL_ID_REP
+
+    @checkbox_legal_id.setter
+    def checkbox_legal_id(self, new_checkbox_legal_id: str) -> None:
+        self.__CHECKBOX_LEGAL_ID_REP = new_checkbox_legal_id
 
     @property
     def username_qry(self):
@@ -163,7 +267,7 @@ class TestCreation(TestsInterface):
 
     @username_qry.setter
     def username_qry(self, new_username_qry) -> None:
-        self.username_qry = new_username_qry
+        self.__USERNAME_QRY = new_username_qry
 
     @property
     def first_name_qry(self):
@@ -171,7 +275,7 @@ class TestCreation(TestsInterface):
 
     @first_name_qry.setter
     def first_name_qry(self, new_first_name_qry) -> None:
-        self.first_name_qry = new_first_name_qry
+        self.__FIRST_NAME_QRY = new_first_name_qry
 
     @property
     def last_name_qry(self):
@@ -179,7 +283,7 @@ class TestCreation(TestsInterface):
 
     @last_name_qry.setter
     def last_name_qry(self, new_last_name_qry) -> None:
-        self.last_name_qry = new_last_name_qry
+        self.__LAST_NAME_QRY = new_last_name_qry
 
     @property
     def email_qry(self):
@@ -187,7 +291,7 @@ class TestCreation(TestsInterface):
 
     @email_qry.setter
     def email_qry(self, new_email_qry) -> None:
-        self.email_qry = new_email_qry
+        self.__EMAIL_QRY = new_email_qry
 
     @property
     def password_qry(self):
@@ -195,7 +299,7 @@ class TestCreation(TestsInterface):
 
     @password_qry.setter
     def password_qry(self, new_password_qry) -> None:
-        self.password_qry = new_password_qry
+        self.__PASSWORD_QRY = new_password_qry
 
     @property
     def confirm_password_qry(self):
@@ -203,7 +307,7 @@ class TestCreation(TestsInterface):
 
     @confirm_password_qry.setter
     def confirm_password_qry(self, new_confirm_password_qry) -> None:
-        self.confirm_password_qry = new_confirm_password_qry
+        self.__CONFIRM_PASSWORD_QRY = new_confirm_password_qry
 
     @property
     def cellphone_number_qry(self):
@@ -211,7 +315,7 @@ class TestCreation(TestsInterface):
 
     @cellphone_number_qry.setter
     def cellphone_number_qry(self, new_cellphone_number_qry) -> None:
-        self.cellphone_number_qry = new_cellphone_number_qry
+        self.__CELLPHONE_NUMBER_QRY = new_cellphone_number_qry
 
     @property
     def checkbox_legal_qry(self):
@@ -219,7 +323,7 @@ class TestCreation(TestsInterface):
 
     @checkbox_legal_qry.setter
     def checkbox_legal_qry(self, new_checkbox_legal_qry) -> None:
-        self.checkbox_legal_qry = new_checkbox_legal_qry
+        self.__CHECKBOX_LEGAL_QRY = new_checkbox_legal_qry
 
     @property
     def checkbox_contract_qry(self):
@@ -227,7 +331,7 @@ class TestCreation(TestsInterface):
 
     @checkbox_contract_qry.setter
     def checkbox_contract_qry(self, new_checkbox_contract_qry) -> None:
-        self.checkbox_contract_qry = new_checkbox_contract_qry
+        self.__CHECKBOX_CONTRACT_QRY = new_checkbox_contract_qry
 
     @property
     def checkbox_chart_of_payment_qry(self):
@@ -235,11 +339,15 @@ class TestCreation(TestsInterface):
 
     @checkbox_chart_of_payment_qry.setter
     def checkbox_chart_of_payment_qry(self, new_checkbox_chart_of_payment_qry) -> None:
-        self.checkbox_chart_of_payment_qry = new_checkbox_chart_of_payment_qry
+        self.__CHECKBOX_CHART_OF_PAYMENT_QRY = new_checkbox_chart_of_payment_qry
 
     @property
     def create_account_btn_label(self) -> str:
         return self.__CREATE_ACCOUNT_BTN_LABEL
+
+    @create_account_btn_label.setter
+    def create_account_btn_label(self, new_create_account_btn_label: str) -> None:
+        self.__CREATE_ACCOUNT_BTN_LABEL = new_create_account_btn_label
 
     @property
     def create_account_btn(self):
@@ -247,7 +355,7 @@ class TestCreation(TestsInterface):
 
     @create_account_btn.setter
     def create_account_btn(self, new_create_account_btn) -> None:
-        self.create_account_btn = new_create_account_btn
+        self.__CREATE_ACCOUNT_BTN = new_create_account_btn
 
     """
         Verify that json contains all constants for TestMainpage 
@@ -258,41 +366,41 @@ class TestCreation(TestsInterface):
 
         while True:
             try:
-                self.__ACTIVE = self.jsondump[TEST_CREATION_REP][ACTIVE_REP]
-                self.__POLYSAFE_CREATE_ACCOUNT_URL = \
+                self.active = self.jsondump[TEST_CREATION_REP][ACTIVE_REP]
+                self.polysafe_create_account_url = \
                     self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][POLYSAFE_CREATE_ACCOUNT_URL_REP]
-                self.__LIMIT_OF_RETRIES = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][LIMIT_OF_RETRIES_REP]
-                self.__VALID_REGISTRATION_NUMBER_LIST = \
+                self.limit_of_retries = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][LIMIT_OF_RETRIES_REP]
+                self.valid_registration_number_list = \
                     self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][VALID_REGISTRATION_NUMBER_LIST_REP]
-                self.__INVALID_REGISTRATION_NUMBER_LIST = \
+                self.invalid_registration_number_list = \
                     self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][INVALID_REGISTRATION_NUMBER_LIST_REP]
-                self.__VALID_NAME_LIST = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][VALID_NAME_LIST_REP]
-                self.__INVALID_NAME_LIST = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][INVALID_NAME_LIST_REP]
-                self.__VALID_EMAIL_LIST = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][VALID_EMAIL_LIST_REP]
-                self.__INVALID_EMAIL_LIST = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][INVALID_NAME_LIST_REP]
-                self.__VALID_PASSWORD_LIST = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][VALID_PASSWORD_LIST_REP]
-                self.__INVALID_PASSWORD_LIST = \
+                self.valid_name_list = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][VALID_NAME_LIST_REP]
+                self.invalid_name_list = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][INVALID_NAME_LIST_REP]
+                self.valid_email_list = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][VALID_EMAIL_LIST_REP]
+                self.invalid_email_list = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][INVALID_NAME_LIST_REP]
+                self.valid_password_list = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][VALID_PASSWORD_LIST_REP]
+                self.invalid_password_list = \
                     self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][INVALID_PASSWORD_LIST_REP]
-                self.__VALID_CELLPHONE_NUMBER_LIST = \
+                self.valid_cellphone_number_list = \
                     self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][VALID_CELLPHONE_NUMBER_LIST_REP]
-                self.__INVALID_CELLPHONE_NUMBER_LIST = \
+                self.invalid_cellphone_number_list = \
                     self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][INVALID_CELLPHONE_NUMBER_LIST_REP]
-                self.__ACCOUNT_CREATION_CONTRACT_LNK = \
+                self.account_creation_contract = \
                     self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][ACCOUNT_CREATION_CONTRACT_LNK_REP]
-                self.__CHART_OF_PAYMENT_LNK = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CHART_OF_PAYMENT_LNK_REP]
-                self.__LEGAL_LNK = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][LEGAL_LNK_REP]
-                self.__USERNAME_ID = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][USERNAME_ID_REP]
-                self.__FIRST_NAME_ID = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][FIRST_NAME_ID_REP]
-                self.__LAST_NAME_ID = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][LAST_NAME_ID_REP]
-                self.__EMAIL_ID = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][EMAIL_ID_REP]
-                self.__PASSWORD_ID = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][PASSWORD_ID_REP]
-                self.__CONFIRM_PASSWORD_ID = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CONFIRM_PASSWORD_ID_REP]
-                self.__CELLPHONE_NUMBER_ID = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CELLPHONE_NUMBER_ID_REP]
-                self.__CHECKBOX_CONTRACT_ID = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CHECKBOX_CONTRACT_ID_REP]
-                self.__CHECKBOX_CHART_OF_PAYMENT_ID = \
+                self.chart_of_payment = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CHART_OF_PAYMENT_LNK_REP]
+                self.legal = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][LEGAL_LNK_REP]
+                self.username_id = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][USERNAME_ID_REP]
+                self.first_name_id = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][FIRST_NAME_ID_REP]
+                self.last_name_id = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][LAST_NAME_ID_REP]
+                self.email_id = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][EMAIL_ID_REP]
+                self.password_id = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][PASSWORD_ID_REP]
+                self.confirm_password_id = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CONFIRM_PASSWORD_ID_REP]
+                self.cellphone_number_id = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CELLPHONE_NUMBER_ID_REP]
+                self.checkbox_contract_id = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CHECKBOX_CONTRACT_ID_REP]
+                self.checkbox_chart_of_payment_id = \
                     self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CHECKBOX_CHART_OF_PAYMENT_ID_REP]
-                self.__CHECKBOX_LEGAL_ID = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CHECKBOX_LEGAL_ID_REP]
-                self.__CREATE_ACCOUNT_BTN_LABEL = \
+                self.checkbox_legal_id = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CHECKBOX_LEGAL_ID_REP]
+                self.create_account_btn_label = \
                     self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CREATE_ACCOUNT_BTN_LABEL_REP]
                 break_loop = True
 

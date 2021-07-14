@@ -35,7 +35,7 @@ class JsonFile:
         self.__DEFAULT_DATA = {
             DEV_POWERTOOL_REP:
                 {
-                    DEV_CREDENTIALS_REP: 
+                    DEV_CREDENTIALS_REP:
                         {
                             EMAIL_REP: "charles.delafontaine@gmail.com",
                             PASSWORD_REP: "Charles1"
@@ -48,7 +48,7 @@ class JsonFile:
                     CHECK_LOGIN_CREDENTIALS_REP: True,
                     SEND_FAKE_LOGIN_CREDENTIALS_REP: True,
                     CHECK_ERROR_GENERATION_REP: True,
-                    CONSTANTS_REP: 
+                    CONSTANTS_REP:
                         {
                             POLYSAFE_MAINPAGE_URL_REP: "http://localhost/polysafe_code/erp/index.php",
                             CONNECTION_TEXT_REP: "Connexion »",
@@ -99,6 +99,20 @@ class JsonFile:
                             CHECKBOX_CHART_OF_PAYMENT_ID_REP: "checkbox_doc2",
                             CHECKBOX_LEGAL_ID_REP: "checkbox_doc3",
                             CREATE_ACCOUNT_BTN_LABEL_REP: "next_button"
+                        }
+                },
+            TEST_RESET_PASSWORD_REP:
+                {
+                    ACTIVE_REP: True,
+                    CONSTANTS_REP:
+                        {
+                            EMAIL_QRY_CLASS_NAME_REP: "form-control",
+                            POLYSAFE_FORGOT_PASSWORD_URL_REP:
+                                "http://localhost/polysafe_code/erp/users/forgot_password.php",
+                            RESET_BTN_CLASS_NAME_REP: "btn btn-primary",
+                            VALID_EMAIL_LIST_REP: ["poly.mtl@hotmail.ca", "polymtl.del@gmail.com",
+                                                   "charbel-gendron@polymtl.ca"],
+                            INVALID_EMAIL_LIST_REP: ["f@domaineinvalide.com", " ", "", "???@polymtl.ca"],
                         }
                 }
         }
