@@ -8,8 +8,16 @@
     "test_creation": {
         "active": true,
         "constants": {
-            "ACCOUNT_CREATION_CONTRACT_LNK": "https://polysafe.polymtl.ca/uploads/static/documents/contrat_adhesion.pdf",
-            "CHART_OF_PAYMENT_LNK": "https://polysafe.polymtl.ca/uploads/static/documents/contrat_paiement.pdf",
+            "ACCOUNT_CREATION_CONTRACT_LNK": "Contrat d'adhésion",
+            "CELLPHONE_NUMBER_ID": "phone",
+            "CHART_OF_PAYMENT_LNK": "Charte de paiement",
+            "CHECKBOX_CHART_OF_PAYMENT_ID": "checkbox_doc2",
+            "CHECKBOX_CONTRACT_ID": "checkbox_doc1",
+            "CHECKBOX_LEGAL_ID": "checkbox_doc3",
+            "CONFIRM_PASSWORD_ID": "confirm",
+            "CREATE_ACCOUNT_BTN_LABEL": "next_button",
+            "EMAIL_ID": "email",
+            "FIRST_NAME_ID": "fname",
             "INVALID_CELLPHONE_NUMBER_LIST": [
                 "18008001010",
                 "8!97770909",
@@ -40,9 +48,12 @@
                 "9FAFX",
                 "2*60259"
             ],
-            "LEGAL_LNK": "https://polysafe.polymtl.ca/uploads/static/documents/mention_legale.pdf",
+            "LAST_NAME_ID": "lname",
+            "LEGAL_LNK": "Mention légale",
             "LIMIT_OF_RETRIES": 0,
+            "PASSWORD_ID": "password",
             "POLYSAFE_CREATE_ACCOUNT_URL": "http://localhost/polysafe_code/erp/users/join.php",
+            "USERNAME_ID": "username",
             "VALID_CELLPHONE_NUMBER_LIST": [
                 "1234567890",
                 "8195551010",

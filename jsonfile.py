@@ -84,10 +84,21 @@ class JsonFile:
                                                         "motdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplong"],
                             VALID_CELLPHONE_NUMBER_LIST_REP: ["1234567890", "8195551010", "5144440101"],
                             INVALID_CELLPHONE_NUMBER_LIST_REP: ["18008001010", "8!97770909", "abcdefghgh", "", " "],
-                            ACCOUNT_CREATION_CONTRACT_LNK_REP: "https://polysafe.polymtl.ca/uploads/static/documents/contrat_adhesion.pdf",
-                            CHART_OF_PAYMENT_LNK_REP: "https://polysafe.polymtl.ca/uploads/static/documents/contrat_paiement.pdf",
-                            LEGAL_LNK_REP: "https://polysafe.polymtl.ca/uploads/static/documents/mention_legale.pdf",
-                            POLYSAFE_CREATE_ACCOUNT_URL_REP: "http://localhost/polysafe_code/erp/users/join.php"
+                            ACCOUNT_CREATION_CONTRACT_LNK_REP: "Contrat d'adhésion",
+                            CHART_OF_PAYMENT_LNK_REP: "Charte de paiement",
+                            LEGAL_LNK_REP: "Mention légale",
+                            POLYSAFE_CREATE_ACCOUNT_URL_REP: "http://localhost/polysafe_code/erp/users/join.php",
+                            USERNAME_ID_REP: "username",
+                            FIRST_NAME_ID_REP: "fname",
+                            LAST_NAME_ID_REP: "lname",
+                            EMAIL_ID_REP: "email",
+                            PASSWORD_ID_REP: "password",
+                            CONFIRM_PASSWORD_ID_REP: "confirm",
+                            CELLPHONE_NUMBER_ID_REP: "phone",
+                            CHECKBOX_CONTRACT_ID_REP: "checkbox_doc1",
+                            CHECKBOX_CHART_OF_PAYMENT_ID_REP: "checkbox_doc2",
+                            CHECKBOX_LEGAL_ID_REP: "checkbox_doc3",
+                            CREATE_ACCOUNT_BTN_LABEL_REP: "next_button"
                         }
                 }
         }
