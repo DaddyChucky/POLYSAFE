@@ -39,6 +39,10 @@ class JsonFile:
                         {
                             EMAIL_REP: "charles.delafontaine@gmail.com",
                             PASSWORD_REP: "Charles1"
+                        },
+                    CONSTANTS_REP:
+                        {
+                            ERROR_CLASS_LABEL_REP: "alert alert-danger alert-dismissible"
                         }
                 },
             TEST_MAINPAGE_REP:
@@ -50,10 +54,10 @@ class JsonFile:
                     CHECK_ERROR_GENERATION_REP: True,
                     CONSTANTS_REP:
                         {
-                            POLYSAFE_MAINPAGE_URL_REP: "http://localhost/polysafe_code/erp/index.php",
+                            POLYSAFE_MAINPAGE_URL_REP: TESTING_URL_REP + "/index.php",
                             CONNECTION_TEXT_REP: "Connexion »",
                             LIMIT_OF_RETRIES_REP: 0,
-                            EXPECTED_CONNECTION_URL_REP: "http://localhost/polysafe_code/erp/users/login.php",
+                            EXPECTED_CONNECTION_URL_REP: TESTING_URL_REP + "/users/login.php",
                             EMAIL_ID_REP: "username",
                             PASSWORD_ID_REP: "password",
                             CONNECTION_BTN_ID_REP: "next_button",
@@ -81,13 +85,17 @@ class JsonFile:
                             INVALID_EMAIL_LIST_REP: ["f@domaineinvalide.com", " ", "", "???@polymtl.ca"],
                             VALID_PASSWORD_LIST_REP: ["aaaaaa", "*!@*%$#(", "Charles123"],
                             INVALID_PASSWORD_LIST_REP: ["af214", "***   *",
-                                                        "motdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucouptroplong"],
+                                                        "motdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepasse"
+                                                        "beaucouptroplongmotdepassebeaucouptroplongmotdepassebeaucoup"
+                                                        "troplongmotdepassebeaucouptroplongmotdepassebeaucouptroplong"
+                                                        "motdepassebeaucouptroplongmotdepassebeaucouptroplongmotdepasse"
+                                                        "beaucouptroplong"],
                             VALID_CELLPHONE_NUMBER_LIST_REP: ["1234567890", "8195551010", "5144440101"],
                             INVALID_CELLPHONE_NUMBER_LIST_REP: ["18008001010", "8!97770909", "abcdefghgh", "", " "],
                             ACCOUNT_CREATION_CONTRACT_LNK_REP: "Contrat d'adhésion",
                             CHART_OF_PAYMENT_LNK_REP: "Charte de paiement",
                             LEGAL_LNK_REP: "Mention légale",
-                            POLYSAFE_CREATE_ACCOUNT_URL_REP: "http://localhost/polysafe_code/erp/users/join.php",
+                            POLYSAFE_CREATE_ACCOUNT_URL_REP: TESTING_URL_REP + "/users/join.php",
                             USERNAME_ID_REP: "username",
                             FIRST_NAME_ID_REP: "fname",
                             LAST_NAME_ID_REP: "lname",
@@ -107,59 +115,129 @@ class JsonFile:
                     CONSTANTS_REP:
                         {
                             EMAIL_QRY_CLASS_NAME_REP: "form-control",
-                            POLYSAFE_FORGOT_PASSWORD_URL_REP:
-                                "http://localhost/polysafe_code/erp/users/forgot_password.php",
+                            POLYSAFE_FORGOT_PASSWORD_URL_REP: TESTING_URL_REP + "/users/forgot_password.php",
                             RESET_BTN_CLASS_NAME_REP: "btn btn-primary",
                             VALID_EMAIL_LIST_REP: ["poly.mtl@hotmail.ca", "polymtl.del@gmail.com",
                                                    "charbel-gendron@polymtl.ca"],
                             INVALID_EMAIL_LIST_REP: ["f@domaineinvalide.com", " ", "", "???@polymtl.ca"],
                         }
+                },
+            TEST_ACCOUNT_HOME_REP:
+                {
+                    ACTIVE_REP: True,
+                    CONSTANTS_REP:
+                        {
+                            LIMIT_OF_RETRIES_REP: 0,
+                            POLYSAFE_LOGIN_URL_REP: TESTING_URL_REP + "/users/login.php",
+                            EMAIL_ID_REP: "username",
+                            PASSWORD_ID_REP: "password",
+                            CONNECTION_BTN_ID_REP: "next_button",
+                            ACCOUNT_REGISTRAR_VERIFIED_REP: "Bienvenue sur votre espace de création !",
+                            FORMATION_BTN_LABEL_REP: "Formation SST",
+                            RESERVE_BTN_LABEL_REP: "Réserver",
+                            CONTACT_BTN_LABEL_REP: "Nous contacter",
+                            MEMBERSHIP_DETAILS_BTN_LABEL_REP: "Détails",
+                            BILLING_DETAILS_BTN_LABEL_REP: "Détails",
+                            PURCHASE_DETAILS_BTN_LABEL_REP: "Détails",
+                            CALENDAR_LNK_LABEL_REP: "horaires d'ouverture",
+                            MY_CALENDAR_LNK_LABEL_REP: "Mon calendrier",
+                            NEW_RESERVATION_LNK_LABEL_REP: "Nouvelle réservation",
+                            PRINTING_LNK_LABEL_REP: "Impression 3D Ultimaker",
+                            LIVE_PRINTING_LNK_LABEL_REP: "Live impression 3D",
+                            RESERVE_LNK_LABEL_REP: "Réserver une formation",
+                            GLOBAL_CALENDAR_REP: "Calendrier global"
+                        }
                 }
+
         }
 
     @property
     def file_name(self) -> str:
         return self.__FILE_NAME
 
+    @file_name.setter
+    def file_name(self, new_file_name: str) -> None:
+        self.__FILE_NAME = new_file_name
+
     @property
     def file_mode_create(self) -> str:
         return self.__FILE_MODE_CREATE
+
+    @file_mode_create.setter
+    def file_mode_create(self, new_file_mode_create: str) -> None:
+        self.__FILE_MODE_CREATE = new_file_mode_create
 
     @property
     def file_mode_read(self) -> str:
         return self.__FILE_MODE_READ
 
+    @file_mode_read.setter
+    def file_mode_read(self, new_file_mode_read: str) -> None:
+        self.__FILE_MODE_READ = new_file_mode_read
+
     @property
     def file_encoding(self) -> str:
         return self.__FILE_ENCODING
+
+    @file_encoding.setter
+    def file_encoding(self, new_file_encoding: str) -> None:
+        self.__FILE_ENCODING = new_file_encoding
 
     @property
     def file_ensure_ascii(self) -> bool:
         return self.__FILE_ENSURE_ASCII
 
+    @file_ensure_ascii.setter
+    def file_ensure_ascii(self, new_file_ensure_ascii: bool) -> None:
+        self.__FILE_ENSURE_ASCII = new_file_ensure_ascii
+
     @property
     def file_sort_keys(self) -> bool:
         return self.__FILE_SORT_KEYS
+
+    @file_sort_keys.setter
+    def file_sort_keys(self, new_file_sort_keys: bool) -> None:
+        self.__FILE_SORT_KEYS = new_file_sort_keys
 
     @property
     def file_indent(self) -> int:
         return self.__FILE_INDENT
 
+    @file_indent.setter
+    def file_indent(self, new_file_indent: int) -> None:
+        self.__FILE_INDENT = new_file_indent
+
     @property
     def pwd_override_changed(self) -> list[str]:
         return self.__PWD_OVERRIDE_CHANGED
+
+    @pwd_override_changed.setter
+    def pwd_override_changed(self, new_pwd_override_changed: list[str]) -> None:
+        self.__PWD_OVERRIDE_CHANGED = new_pwd_override_changed
 
     @property
     def pwd_override_unchanged(self) -> list[str]:
         return self.__PWD_OVERRIDE_UNCHANGED
 
+    @pwd_override_unchanged.setter
+    def pwd_override_unchanged(self, new_pwd_override_unchanged: list[str]) -> None:
+        self.__PWD_OVERRIDE_UNCHANGED = new_pwd_override_unchanged
+
     @property
     def default_data(self) -> dict:
         return self.__DEFAULT_DATA
 
+    @default_data.setter
+    def default_data(self, new_default_data: dict) -> None:
+        self.__DEFAULT_DATA = new_default_data
+
     @property
     def os(self):
         return self.__OS
+
+    @os.setter
+    def os(self, new_os) -> None:
+        self.__OS = new_os
 
     """
         Creates fresh copy of json file.

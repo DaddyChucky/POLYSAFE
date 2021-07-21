@@ -3,7 +3,7 @@
     Description:    TestsInterface class definition.
     File name:      tests_interface.py
     Author:         Charles De Lafontaine
-    Last edition:   06/22/2021
+    Last edition:   07/21/2021
 """
 
 from jsonfile import *
@@ -46,9 +46,17 @@ class TestsInterface:
     def polysafe_developer_email(self) -> str:
         return self.__POLYSAFE_DEVELOPER_EMAIL
 
+    @polysafe_developer_email.setter
+    def polysafe_developer_email(self, new_polysafe_developer_email: str) -> None:
+        self.__POLYSAFE_DEVELOPER_EMAIL = new_polysafe_developer_email
+
     @property
     def polysafe_developer_password(self) -> str:
         return self.__POLYSAFE_DEVELOPER_PASSWORD
+
+    @polysafe_developer_password.setter
+    def polysafe_developer_password(self, new_polysafe_developer_password: str) -> None:
+        self.__POLYSAFE_DEVELOPER_PASSWORD = new_polysafe_developer_password
 
     @property
     def jsonfile(self) -> JsonFile:
@@ -77,8 +85,8 @@ class TestsInterface:
 
     def load_constants(self, is_root: bool = False) -> None:
         try:
-            self.__POLYSAFE_DEVELOPER_EMAIL = self.jsondump[DEV_POWERTOOL_REP][DEV_CREDENTIALS_REP][EMAIL_REP] 
-            self.__POLYSAFE_DEVELOPER_PASSWORD = self.jsondump[DEV_POWERTOOL_REP][DEV_CREDENTIALS_REP][PASSWORD_REP]
+            self.polysafe_developer_email = self.jsondump[DEV_POWERTOOL_REP][DEV_CREDENTIALS_REP][EMAIL_REP]
+            self.polysafe_developer_password = self.jsondump[DEV_POWERTOOL_REP][DEV_CREDENTIALS_REP][PASSWORD_REP]
 
         # If one or more constants are inaccessible
         except TypeError or KeyError:

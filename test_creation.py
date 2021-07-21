@@ -52,6 +52,8 @@ class TestCreation(TestsInterface):
         self.__CHECKBOX_CHART_OF_PAYMENT_QRY = None
         self.__CREATE_ACCOUNT_BTN_LABEL = None
         self.__CREATE_ACCOUNT_BTN = None
+        self.__CURR_WINDOW_ID = 0
+        self.__ERROR_CLASS_LABEL = None
 
     @property
     def polysafe_create_account_url(self) -> str:
@@ -357,6 +359,22 @@ class TestCreation(TestsInterface):
     def create_account_btn(self, new_create_account_btn) -> None:
         self.__CREATE_ACCOUNT_BTN = new_create_account_btn
 
+    @property
+    def window_current_id(self) -> int:
+        return self.__CURR_WINDOW_ID
+
+    @window_current_id.setter
+    def window_current_id(self, new_window_current_id: int) -> None:
+        self.__CURR_WINDOW_ID = new_window_current_id
+
+    @property
+    def error_class_label(self) -> str:
+        return self.__ERROR_CLASS_LABEL
+
+    @error_class_label.setter
+    def error_class_label(self, new_error_class_label: str) -> None:
+        self.__ERROR_CLASS_LABEL = new_error_class_label
+
     """
         Verify that json contains all constants for TestMainpage 
     """
@@ -402,6 +420,7 @@ class TestCreation(TestsInterface):
                 self.checkbox_legal_id = self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CHECKBOX_LEGAL_ID_REP]
                 self.create_account_btn_label = \
                     self.jsondump[TEST_CREATION_REP][CONSTANTS_REP][CREATE_ACCOUNT_BTN_LABEL_REP]
+                self.error_class_label = self.jsondump[DEV_POWERTOOL_REP][CONSTANTS_REP][ERROR_CLASS_LABEL_REP]
                 break_loop = True
 
             except Exception:
@@ -417,8 +436,7 @@ class TestCreation(TestsInterface):
                 break
 
     def seek_error_box(self) -> bool:
-        error_class_label = "alert alert-danger"
-        if self.driver.find_element_by_class_name(error_class_label) is None:  # No error box while loading page
+        if self.driver.find_element_by_class_name("close") is None:  # No error box while loading page
             return False
         return True
 
@@ -432,46 +450,68 @@ class TestCreation(TestsInterface):
             )
 
         if first_name and self.valid_name_list is not None:
+            self.first_name_qry.clear()
             self.first_name_qry.send_keys(
                 self.valid_name_list[ri(0, len(self.valid_name_list) - 1)]
             )
 
         if last_name and self.valid_name_list is not None:
+            self.last_name_qry.clear()
             self.last_name_qry.send_keys(
                 self.valid_name_list[ri(0, len(self.valid_name_list) - 1)]
             )
 
         if email and self.valid_email_list is not None:
+            self.email_qry.clear()
             self.email_qry.send_keys(
                 self.valid_email_list[ri(0, len(self.valid_email_list) - 1)]
             )
 
+        latest_password = self.valid_password_list[ri(0, len(self.valid_password_list) - 1)]
+
         if password and self.valid_password_list is not None:
+            self.password_qry.clear()
             self.password_qry.send_keys(
-                self.valid_password_list[ri(0, len(self.valid_password_list) - 1)]
+                latest_password
             )
 
         if confirm_password and self.valid_password_list is not None:
+            self.confirm_password_qry.clear()
             self.confirm_password_qry.send_keys(
-                self.valid_password_list[ri(0, len(self.valid_password_list) - 1)]
+                latest_password
             )
 
         if cellphone and self.valid_cellphone_number_list is not None:
+            self.cellphone_number_qry.clear()
             self.cellphone_number_qry.send_keys(
                 self.valid_cellphone_number_list[ri(0, len(self.valid_cellphone_number_list) - 1)]
             )
 
         if checkbox_contract:
+            self.checkbox_contract_qry.clear()
             self.checkbox_contract_qry.click()
 
         if checkbox_legal:
+            self.checkbox_legal_qry.clear()
             self.checkbox_legal_qry.click()
 
         if checkbox_chart_of_payment:
+            self.checkbox_chart_of_payment_qry.clear()
             self.checkbox_chart_of_payment_qry.click()
 
         print_warning("ACCOUNT_CREATION", "Form submitted, slow down expected...")
         self.create_account_btn.click()
+
+    def close_current_window(self):
+        self.driver.close()
+
+        if self.window_current_id > 0:
+            self.window_current_id -= 1
+            self.driver.switch_to_window(self.driver.window_handles[self.window_current_id])
+
+    def switch_current_window(self):
+        self.window_current_id += 1
+        self.driver.switch_to_window(self.driver.window_handles[self.window_current_id])
 
     def test_creation(self):
         # Load constants before actually launching the test
@@ -496,12 +536,16 @@ class TestCreation(TestsInterface):
                             print_warning("ACCOUNT_CREATION", "Slow down expected.")
                             account_creation_contract_btn.click()
 
-                            if self.driver.find_elements_by_xpath("//*[contains(text(), "
-                                                                  "'The requested URL was not found on this "
-                                                                  "server.')]"):
+                            self.switch_current_window()
+
+                            if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404]") \
+                                    is not None:
                                 print_failure("ACCOUNT_CREATION", "Contract button link is invalid.")
                             else:
                                 print_success("ACCOUNT_CREATION", "Contract button link is valid!")
+
+                            self.close_current_window()
+
                         else:
                             print_failure("ACCOUNT_CREATION", "Could not find contract button link.")
 
@@ -517,12 +561,16 @@ class TestCreation(TestsInterface):
                             print_warning("ACCOUNT_CREATION", "Slow down expected.")
                             chart_of_payment_btn.click()
 
-                            if self.driver.find_elements_by_xpath("//*[contains(text(), "
-                                                                  "'The requested URL was not found on this"
-                                                                  " server.')]"):
+                            self.switch_current_window()
+
+                            if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
+                                    is not None:
                                 print_failure("ACCOUNT_CREATION", "Chart of payment button link is invalid.")
                             else:
                                 print_success("ACCOUNT_CREATION", "Chart of payment button link is valid!")
+
+                            self.close_current_window()
+
                         else:
                             print_failure("ACCOUNT_CREATION", "Could not find chart of payment button link.")
 
@@ -538,12 +586,17 @@ class TestCreation(TestsInterface):
                             print_warning("ACCOUNT_CREATION", "Slow down expected.")
                             legal_btn.click()
 
-                            if self.driver.find_elements_by_xpath("//*[contains(text(), "
-                                                                  "'The requested URL was not found on this"
-                                                                  " server.')]"):
+                            self.switch_current_window()
+
+                            if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
+                                    is not None:
                                 print_failure("ACCOUNT_CREATION", "Legal button link is invalid.")
+
                             else:
                                 print_success("ACCOUNT_CREATION", "Legal button link is valid!")
+
+                            self.close_current_window()
+
                         else:
                             print_failure("ACCOUNT_CREATION", "Could not find legal button link.")
 
@@ -580,6 +633,7 @@ class TestCreation(TestsInterface):
                         for invalid_registration_number in self.invalid_registration_number_list:
                             print_header("ACCOUNT_CREATION", "Sending invalid registration numbers (" + str(count)
                                          + ")...")
+                            self.username_qry.clear()
                             self.username_qry.send_keys(invalid_registration_number)
                             self.auto_complete_querries(username=False)
                             if self.seek_error_box():
@@ -595,6 +649,7 @@ class TestCreation(TestsInterface):
                         for invalid_name in self.invalid_name_list:
                             print_header("ACCOUNT_CREATION", "Sending invalid first name (" + str(count)
                                          + ")...")
+                            self.first_name_qry.clear()
                             self.first_name_qry.send_keys(invalid_name)
                             self.auto_complete_querries(first_name=False)
                             if self.seek_error_box():
@@ -610,6 +665,7 @@ class TestCreation(TestsInterface):
                         for invalid_name in self.invalid_name_list:
                             print_header("ACCOUNT_CREATION", "Sending invalid last name (" + str(count)
                                          + ")...")
+                            self.last_name_qry.clear()
                             self.last_name_qry.send_keys(invalid_name)
                             self.auto_complete_querries(last_name=False)
                             if self.seek_error_box():
@@ -625,6 +681,7 @@ class TestCreation(TestsInterface):
                         for invalid_password in self.invalid_password_list:
                             print_header("ACCOUNT_CREATION", "Sending invalid password (" + str(count)
                                          + ")...")
+                            self.password_qry.clear()
                             self.password_qry.send_keys(invalid_password)
                             self.auto_complete_querries(password=False)
                             if self.seek_error_box():
@@ -640,6 +697,7 @@ class TestCreation(TestsInterface):
                         for invalid_password in self.invalid_password_list:
                             print_header("ACCOUNT_CREATION", "Sending invalid confirm password (" + str(count)
                                          + ")...")
+                            self.confirm_password_qry.clear()
                             self.confirm_password_qry.send_keys(invalid_password)
                             self.auto_complete_querries(confirm_password=False)
                             if self.seek_error_box():
@@ -655,6 +713,7 @@ class TestCreation(TestsInterface):
                         for invalid_cellphone_number in self.invalid_cellphone_number_list:
                             print_header("ACCOUNT_CREATION", "Sending invalid cellphone number (" + str(count)
                                          + ")...")
+                            self.cellphone_number_qry.clear()
                             self.cellphone_number_qry.send_keys(invalid_cellphone_number)
                             self.auto_complete_querries(cellphone=False)
                             if self.seek_error_box():
