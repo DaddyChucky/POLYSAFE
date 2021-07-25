@@ -1,9 +1,9 @@
 """
     Polysafe - User testing.
     Description:    Simulates user interactions for polysafe with Selenium.
-    File name:      main.py
+    File name:      pipeline.py
     Author:         Charles De Lafontaine
-    Last edition:   06/29/2021
+    Last edition:   07/25/2021
 """
 from start_connection_test import *
 from start_creation_test import *
@@ -13,42 +13,16 @@ from test_connection import *
 from test_creation import *
 from test_reset_password import *
 from test_account_home import *
-from typing import Union
 
-
-def seek_test_running_mode() -> str:
-    user_input = input()
-    while user_input not in MULTI_THREADING_OPTIONS and user_input not in QUEUED_OPTIONS:
-        print_failure("MAIN", "Invalid answer, please try again: ")
-        user_input = input()
-
-        if user_input in MULTI_THREADING_OPTIONS or user_input in QUEUED_OPTIONS:
-            return user_input
-    return user_input
-
-
-def wait_for_user_input() -> Union[int, str]:
-    user_input = input()
-    while True:
-        if user_input not in TESTS and user_input not in TEST_QUIT_OPTIONS and not isinstance(user_input, int) \
-                and 0 > int(user_input) > len(TESTS):
-            print_failure("TEST", "Invalid answer, please try again: ")
-            user_input = input()
-
-            if user_input in MULTI_THREADING_OPTIONS or user_input in QUEUED_OPTIONS:
-                break
-
-        else:
-            break
-
-    return user_input
+from selenium.webdriver.chrome.options import Options
 
 
 def main():
     print_header("MAIN", "Would you like to run the tests queued or by multi-threading? (<q>/<m>)")
     print_warning("MAIN", "Please note that multi-threading requires a preloaded JSON file with no errors. "
                           "If you would like to load a fresh JSON file, please run the tests queued.")
-    test_running_mode = seek_test_running_mode()
+    test_running_mode = "hl"
+    #test_running_mode = seek_test_running_mode()
 
     if test_running_mode in MULTI_THREADING_OPTIONS:
         print_header("MAIN", "Starting multi-threading testing...")
@@ -76,14 +50,20 @@ def main():
         print_warning("MAIN", "If you wish to quit, at all times you can enter <quit> or <q>.")
 
         while True:
-            user_input = wait_for_user_input()
+            user_input = CONNECTION_TEST
+            #user_input = wait_for_user_input()
 
             if user_input in TEST_QUIT_OPTIONS:
                 exit(0)
 
             else:
                 if user_input == CONNECTION_TEST or int(user_input) == CONNECTION_TEST_ID:
-                    connection_test = TestConnection(webdriver.Chrome(ChromeDriverManager().install()))
+                    options = Options()
+                    options.add_argument("--headless")
+                    options.add_argument("--no-sandbox")
+                    options.add_argument("--disable-dev-shm-usage")
+                    connection_test = TestConnection(webdriver.Chrome(ChromeDriverManager().install(),
+                                                                      options=options))
                     connection_test.test_connection()
 
                 elif user_input == CREATION_TEST or int(user_input) == CREATION_TEST_ID:
