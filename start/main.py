@@ -5,14 +5,15 @@
     Author:         Charles De Lafontaine
     Last edition:   06/29/2021
 """
-from start_connection_test import *
-from start_creation_test import *
-from start_reset_password_test import *
-from start_account_home_test import *
-from test_connection import *
-from test_creation import *
-from test_reset_password import *
-from test_account_home import *
+from start.start_connection_test import *
+from start.start_creation_test import *
+from start.start_reset_password_test import *
+from start.start_account_home_test import *
+from tests.test_connection import *
+from tests.test_creation import *
+from tests.test_reset_password import *
+from tests.test_account_home import *
+
 from typing import Union
 
 
@@ -52,21 +53,21 @@ def main():
 
     if test_running_mode in MULTI_THREADING_OPTIONS:
         print_header("MAIN", "Starting multi-threading testing...")
-        connection_test = StartConnectionTest("CONNECTION_TEST", "Starting connection test...")
+        connection_test = StartConnectionTest("CONNECTION_TEST", "Starting connection tests...")
         connection_test.start()
 
-        creation_test = StartCreationTest("CREATION_TEST", "Starting creation test...")
+        creation_test = StartCreationTest("CREATION_TEST", "Starting creation tests...")
         creation_test.start()
 
-        test_reset_password = StartResetPasswordTest("RESET_PASSWORD_TEST", "Starting reset password test...")
+        test_reset_password = StartResetPasswordTest("RESET_PASSWORD_TEST", "Starting reset password tests...")
         test_reset_password.start()
 
-        test_account_home = StartAccountHomeTest("ACCOUNT_HOME_TEST", "Starting account home test...")
+        test_account_home = StartAccountHomeTest("ACCOUNT_HOME_TEST", "Starting account home tests...")
         test_account_home.start()
 
     else:
         print_header("MAIN", "Starting queued testing...")
-        print_warning("MAIN", "To start, please type the name/number of the desired test:")
+        print_warning("MAIN", "To start, please type the name/number of the desired tests:")
 
         count = 0
         for test in TESTS:
@@ -83,19 +84,23 @@ def main():
 
             else:
                 if user_input == CONNECTION_TEST or int(user_input) == CONNECTION_TEST_ID:
-                    connection_test = TestConnection(webdriver.Chrome(ChromeDriverManager().install()))
+                    connection_test = TestConnection(webdriver.Chrome(ChromeDriverManager().install(),
+                                                                      options=OPTIONS))
                     connection_test.test_connection()
 
                 elif user_input == CREATION_TEST or int(user_input) == CREATION_TEST_ID:
-                    creation_test = TestCreation(webdriver.Chrome(ChromeDriverManager().install()))
+                    creation_test = TestCreation(webdriver.Chrome(ChromeDriverManager().install(),
+                                                                  options=OPTIONS))
                     creation_test.test_creation()
 
                 elif user_input == RESET_PASSWORD_TEST or int(user_input) == RESET_PASSWORD_TEST_ID:
-                    test_reset_password = TestResetPassword(webdriver.Chrome(ChromeDriverManager().install()))
+                    test_reset_password = TestResetPassword(webdriver.Chrome(ChromeDriverManager().install(),
+                                                                             options=OPTIONS))
                     test_reset_password.test_reset_password()
 
                 elif user_input == ACCOUNT_HOME_TEST or int(user_input) == ACCOUNT_HOME_TEST_ID:
-                    test_account_home = TestAccountHome(webdriver.Chrome(ChromeDriverManager().install()))
+                    test_account_home = TestAccountHome(webdriver.Chrome(ChromeDriverManager().install(),
+                                                                         options=OPTIONS))
                     test_account_home.test_account_home()
 
                 exit(0)

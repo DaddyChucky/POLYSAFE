@@ -6,7 +6,8 @@
     Last edition:   06/29/2021
 """
 
-from tests_interface import *
+from tests.tests_interface import *
+
 import sys
 
 
@@ -210,7 +211,8 @@ class TestConnection(TestsInterface):
                               "One or many errors in loading constants.")
                 print_header("MAINPAGE_LD_CST",
                              "Retrying to read json file...")
-                with open(self.jsonfile.os.getcwd() + self.jsonfile.file_name, self.jsonfile.file_mode_read,
+                with open(self.jsonfile.file_path,
+                          self.jsonfile.file_mode_read,
                           encoding=self.jsonfile.file_encoding) as json_file:
                     self.jsonfile.json_read_failure(json_file)
 
@@ -218,10 +220,10 @@ class TestConnection(TestsInterface):
                 break
 
     def test_connection(self):
-        # Load constants before actually launching the test
+        # Load constants before actually launching the tests
         self.load_constants()
 
-        if self.active:  # Only run if test is activated
+        if self.active:  # Only run if tests is activated
             n_failures = 0
 
             with self.wait_for_page_load(timeout=10):

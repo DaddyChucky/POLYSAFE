@@ -6,7 +6,8 @@
     Last edition:   07/21/2021
 """
 
-from tests_interface import *
+from tests.tests_interface import *
+
 import sys
 
 
@@ -353,7 +354,7 @@ class TestAccountHome(TestsInterface):
                               "One or many errors in loading constants.")
                 print_header("ACCOUNT_HOME_PAGE",
                              "Retrying to read json file...")
-                with open(self.jsonfile.os.getcwd() + self.jsonfile.file_name, self.jsonfile.file_mode_read,
+                with open(self.jsonfile.file_path, self.jsonfile.file_mode_read,
                           encoding=self.jsonfile.file_encoding) as json_file:
                     self.jsonfile.json_read_failure(json_file)
 
@@ -372,10 +373,10 @@ class TestAccountHome(TestsInterface):
         self.driver.switch_to_window(self.driver.window_handles[self.window_current_id])
 
     def test_account_home(self):
-        # Load constants before actually launching the test
+        # Load constants before actually launching the tests
         self.load_constants()
 
-        if self.active:  # Only run if test is activated
+        if self.active:  # Only run if tests is activated
             n_failures = 0
 
             with self.wait_for_page_load(timeout=10):
@@ -409,9 +410,13 @@ class TestAccountHome(TestsInterface):
 
                         print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Getting buttons...")
                         self.formation_btn = self.driver.find_element_by_partial_link_text(self.formation_btn_label)
-                        self.reserve_btn = self.driver.find_element_by_partial_link_text(self.reserve_btn_label)
+                        self.reserve_btn = self.driver.find_element_by_xpath('//button[text()="' +
+                                                                             self.reserve_btn_label +
+                                                                             '"]')
                         self.contact_btn = self.driver.find_element_by_partial_link_text(self.contact_btn_label)
-                        self.calendar_lnk = self.driver.find_element_by_partial_link_text(self.calendar_lnk_label)
+                        self.calendar_lnk = self.driver.find_elements_by_xpath("//a[text()=' Mon calendrier']")
+
+
                         self.membership_details_btn = \
                             self.driver.find_element_by_partial_link_text(self.membership_details_btn_label)
                         self.billing_details_btn = \
@@ -650,7 +655,7 @@ class TestAccountHome(TestsInterface):
                         n_failures += 1  # Increments number of failures
                         exc_type, value, traceback = sys.exc_info()
                         print_failure(
-                            "TEST_CONNECTION", "Test failed with exception [" + exc_type.__name__ + "]")
+                            "TEST_ACCOUNT_HOME", "Test failed with exception [" + exc_type.__name__ + "]")
 
                     # Breaking if code has no exception or reaches the limit of retries
                     if n_failures == 0 or n_failures >= self.limit_of_retries:

@@ -141,6 +141,7 @@
                 "",
                 "???@polymtl.ca"
             ],
+            "LIMIT_OF_RETRIES": 0,
             "POLYSAFE_FORGOT_PASSWORD_URL": "http://localhost/polysafe_code/erp/users/forgot_password.php",
             "RESET_BTN_CLASS_NAME": "btn btn-primary",
             "VALID_EMAIL_LIST": [

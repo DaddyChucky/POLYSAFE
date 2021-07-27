@@ -6,7 +6,8 @@
     Last edition:   06/29/2021
 """
 
-from tests_interface import *
+from tests.tests_interface import *
+
 import sys
 from random import randint as ri
 
@@ -428,7 +429,7 @@ class TestCreation(TestsInterface):
                               "One or many errors in loading constants.")
                 print_header("MAINPAGE_LD_CST",
                              "Retrying to read json file...")
-                with open(self.jsonfile.os.getcwd() + self.jsonfile.file_name, self.jsonfile.file_mode_read,
+                with open(self.jsonfile.file_path, self.jsonfile.file_mode_read,
                           encoding=self.jsonfile.file_encoding) as json_file:
                     self.jsonfile.json_read_failure(json_file)
 
@@ -514,10 +515,10 @@ class TestCreation(TestsInterface):
         self.driver.switch_to_window(self.driver.window_handles[self.window_current_id])
 
     def test_creation(self):
-        # Load constants before actually launching the test
+        # Load constants before actually launching the tests
         self.load_constants()
 
-        if self.active:  # Only run if test is activated
+        if self.active:  # Only run if tests is activated
             n_failures = 0
             with self.wait_for_page_load(timeout=10):
                 while True:
@@ -756,7 +757,7 @@ class TestCreation(TestsInterface):
                         n_failures += 1  # Increments number of failures
                         exc_type, value, traceback = sys.exc_info()
                         print_failure(
-                            "TEST_CONNECTION", "Test failed with exception [" + exc_type.__name__ + "]")
+                            "TEST_CREATION", "Test failed with exception [" + exc_type.__name__ + "]")
 
                     # Breaking if code has no exception or reaches the limit of retries
                     if n_failures == 0 or n_failures >= self.limit_of_retries:

@@ -5,9 +5,10 @@
     Author:         Charles De Lafontaine
     Last edition:   06/29/2021
 """
+from config.constants import OPTIONS
+from start.start_test_interface import *
+from tests.test_creation import TestCreation
 
-from start_test_interface import *
-from test_creation import TestCreation
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
@@ -18,4 +19,4 @@ class StartCreationTest(StartTestInterface):
 
     def run(self):
         super().run()
-        TestCreation(webdriver.Chrome(ChromeDriverManager().install())).test_creation()
+        TestCreation(webdriver.Chrome(ChromeDriverManager().install(), options=OPTIONS)).test_creation()

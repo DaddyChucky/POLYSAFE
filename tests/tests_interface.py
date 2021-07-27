@@ -6,9 +6,9 @@
     Last edition:   07/21/2021
 """
 
-from jsonfile import *
-from selenium import webdriver
+from config.jsonfile import *
 
+from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.expected_conditions import staleness_of
 from contextlib import contextmanager
@@ -96,6 +96,6 @@ class TestsInterface:
             if is_root:
                 print_header("MAINPAGE_LD_CST",
                              "Retrying to read json file...")
-                with open(self.jsonfile.os.getcwd() + self.jsonfile.file_name, self.jsonfile.file_mode_read,
+                with open(self.jsonfile.file_path, self.jsonfile.file_mode_read,
                           encoding=self.jsonfile.file_encoding) as json_file:
                     self.jsonfile.json_read_failure(json_file)

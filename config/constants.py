@@ -6,6 +6,8 @@
     Last edition:   07/21/2021
 """
 
+from selenium.webdriver.chrome.options import Options
+
 # Switch between local or online testing
 # Online: https://polysafe.polymtl.ca/
 # Offline (e.g.): http://localhost/polysafe_code/erp
@@ -23,6 +25,11 @@ ACCOUNT_HOME_TEST = 'ACCOUNT_HOME'
 ACCOUNT_HOME_TEST_ID = 4
 TESTS = [CONNECTION_TEST, CREATION_TEST, RESET_PASSWORD_TEST, ACCOUNT_HOME_TEST]
 TEST_QUIT_OPTIONS = ['quit', 'QUIT', 'q', 'Q']
+OPTIONS = Options()
+# Add/remove options for debug
+# OPTIONS.add_argument("--headless")
+# OPTIONS.add_argument("--no-sandbox")
+# OPTIONS.add_argument("--disable-dev-shm-usage")
 
 # overall constants
 CONSTANTS_REP = "CONSTANTS"

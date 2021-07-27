@@ -1,16 +1,17 @@
 """
     Polysafe - User testing.
-    Description:    StartResetPassword class definition.
-    File name:      start_reset_password_test.py
+    Description:    StartTestInterface class definition.
+    File name:      start_test_interface.py
     Author:         Charles De Lafontaine
-    Last edition:   07/14/2021
+    Last edition:   06/29/2021
 """
 
+from config.bg_txt_color import *
+
 import threading
-from bg_txt_color import *
 
 
-class StartResetPasswordTest(threading.Thread):
+class StartTestInterface(threading.Thread):
     def __init__(self, thread_name: str, thread_phrase: str):
         threading.Thread.__init__(self)
         self.__THREAD_NAME = thread_name
