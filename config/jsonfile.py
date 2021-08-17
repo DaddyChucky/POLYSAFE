@@ -115,9 +115,9 @@ class JsonFile:
                     CONSTANTS_REP:
                         {
                             LIMIT_OF_RETRIES_REP: 0,
-                            EMAIL_QRY_CLASS_NAME_REP: "form-control",
+                            EMAIL_QRY_PLACEHOLDER_REP: "Email",
                             POLYSAFE_FORGOT_PASSWORD_URL_REP: TESTING_URL_REP + "/users/forgot_password.php",
-                            RESET_BTN_CLASS_NAME_REP: "btn btn-primary",
+                            RESET_BTN_VALUE_REP: "Réinitialiser",
                             VALID_EMAIL_LIST_REP: ["poly.mtl@hotmail.ca", "polymtl.del@gmail.com",
                                                    "charbel-gendron@polymtl.ca"],
                             INVALID_EMAIL_LIST_REP: ["f@domaineinvalide.com", " ", "", "???@polymtl.ca"],

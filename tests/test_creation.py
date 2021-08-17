@@ -446,62 +446,65 @@ class TestCreation(TestsInterface):
                                cellphone: bool = True, checkbox_contract: bool = True,
                                checkbox_chart_of_payment: bool = True, checkbox_legal: bool = True, ) -> None:
         if username and self.valid_registration_number_list is not None:
-            self.username_qry.send_keys(
+            WebDriverWait(self.driver, 20).\
+                until(EC.element_to_be_clickable((By.ID, self.username_id))).send_keys(
                 self.valid_registration_number_list[ri(0, len(self.valid_registration_number_list) - 1)]
             )
 
         if first_name and self.valid_name_list is not None:
-            self.first_name_qry.clear()
-            self.first_name_qry.send_keys(
+            WebDriverWait(self.driver, 20). \
+                until(EC.element_to_be_clickable((By.ID, self.first_name_id))).send_keys(
                 self.valid_name_list[ri(0, len(self.valid_name_list) - 1)]
             )
 
         if last_name and self.valid_name_list is not None:
-            self.last_name_qry.clear()
-            self.last_name_qry.send_keys(
+            WebDriverWait(self.driver, 20). \
+                until(EC.element_to_be_clickable((By.ID, self.last_name_id))).send_keys(
                 self.valid_name_list[ri(0, len(self.valid_name_list) - 1)]
             )
 
         if email and self.valid_email_list is not None:
-            self.email_qry.clear()
-            self.email_qry.send_keys(
+            WebDriverWait(self.driver, 20). \
+                until(EC.element_to_be_clickable((By.ID, self.email_id))).send_keys(
                 self.valid_email_list[ri(0, len(self.valid_email_list) - 1)]
             )
 
         latest_password = self.valid_password_list[ri(0, len(self.valid_password_list) - 1)]
 
         if password and self.valid_password_list is not None:
-            self.password_qry.clear()
-            self.password_qry.send_keys(
+            WebDriverWait(self.driver, 20). \
+                until(EC.element_to_be_clickable((By.ID, self.password_id))).send_keys(
                 latest_password
             )
 
         if confirm_password and self.valid_password_list is not None:
-            self.confirm_password_qry.clear()
-            self.confirm_password_qry.send_keys(
+            WebDriverWait(self.driver, 20). \
+                until(EC.element_to_be_clickable((By.ID, self.confirm_password_id))).send_keys(
                 latest_password
             )
 
         if cellphone and self.valid_cellphone_number_list is not None:
-            self.cellphone_number_qry.clear()
-            self.cellphone_number_qry.send_keys(
+            WebDriverWait(self.driver, 20). \
+                until(EC.element_to_be_clickable((By.ID, self.cellphone_number_id))).send_keys(
                 self.valid_cellphone_number_list[ri(0, len(self.valid_cellphone_number_list) - 1)]
             )
 
         if checkbox_contract:
-            self.checkbox_contract_qry.clear()
-            self.checkbox_contract_qry.click()
+            WebDriverWait(self.driver, 20).\
+                until(EC.element_to_be_clickable((By.ID, self.checkbox_contract_id))).click()
 
         if checkbox_legal:
-            self.checkbox_legal_qry.clear()
-            self.checkbox_legal_qry.click()
+            WebDriverWait(self.driver, 20).\
+                until(EC.element_to_be_clickable((By.ID, self.checkbox_legal_id))).click()
 
         if checkbox_chart_of_payment:
-            self.checkbox_chart_of_payment_qry.clear()
-            self.checkbox_chart_of_payment_qry.click()
+            WebDriverWait(self.driver, 20).\
+                until(EC.element_to_be_clickable((By.ID, self.checkbox_chart_of_payment_id))).click()
 
         print_warning("ACCOUNT_CREATION", "Form submitted, slow down expected...")
-        self.create_account_btn.click()
+
+        WebDriverWait(self.driver, 20). \
+            until(EC.element_to_be_clickable((By.ID, self.create_account_btn_label))).click()
 
     def close_current_window(self):
         self.driver.close()
@@ -539,11 +542,10 @@ class TestCreation(TestsInterface):
 
                             self.switch_current_window()
 
-                            if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404]") \
-                                    is not None:
-                                print_failure("ACCOUNT_CREATION", "Contract button link is invalid.")
-                            else:
+                            if len(self.driver.find_elements_by_xpath("//*[text()='ERROR_404']")) == 0:
                                 print_success("ACCOUNT_CREATION", "Contract button link is valid!")
+                            else:
+                                print_failure("ACCOUNT_CREATION", "Contract button link is invalid.")
 
                             self.close_current_window()
 
@@ -564,11 +566,10 @@ class TestCreation(TestsInterface):
 
                             self.switch_current_window()
 
-                            if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                    is not None:
-                                print_failure("ACCOUNT_CREATION", "Chart of payment button link is invalid.")
+                            if len(self.driver.find_elements_by_xpath("//*[text()='ERROR_404']")) == 0:
+                                print_success("ACCOUNT_CREATION", "Contract button link is valid!")
                             else:
-                                print_success("ACCOUNT_CREATION", "Chart of payment button link is valid!")
+                                print_failure("ACCOUNT_CREATION", "Contract button link is invalid.")
 
                             self.close_current_window()
 
@@ -589,12 +590,10 @@ class TestCreation(TestsInterface):
 
                             self.switch_current_window()
 
-                            if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                    is not None:
-                                print_failure("ACCOUNT_CREATION", "Legal button link is invalid.")
-
+                            if len(self.driver.find_elements_by_xpath("//*[text()='ERROR_404']")) == 0:
+                                print_success("ACCOUNT_CREATION", "Contract button link is valid!")
                             else:
-                                print_success("ACCOUNT_CREATION", "Legal button link is valid!")
+                                print_failure("ACCOUNT_CREATION", "Contract button link is invalid.")
 
                             self.close_current_window()
 
@@ -634,16 +633,19 @@ class TestCreation(TestsInterface):
                         for invalid_registration_number in self.invalid_registration_number_list:
                             print_header("ACCOUNT_CREATION", "Sending invalid registration numbers (" + str(count)
                                          + ")...")
-                            self.username_qry.clear()
-                            self.username_qry.send_keys(invalid_registration_number)
+                            WebDriverWait(self.driver, 20).\
+                                until(EC.element_to_be_clickable((By.ID, self.username_id))).\
+                                send_keys(invalid_registration_number)
+
                             self.auto_complete_querries(username=False)
+
                             if self.seek_error_box():
                                 print_success("ACCOUNT_CREATION", "Invalid registration numbers (" + str(count) +
                                               ") passed!")
                             else:
                                 print_failure("ACCOUNT_CREATION", "Invalid registration numbers (" + str(count) +
                                               ") failed!")
-                                self.driver.get(self.polysafe_create_account_url)
+                            self.driver.get(self.polysafe_create_account_url)
                             count += 1
 
                         count = 0

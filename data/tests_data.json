@@ -134,7 +134,7 @@
     "TEST_RESET_PASSWORD": {
         "ACTIVE": true,
         "CONSTANTS": {
-            "EMAIL_QRY_CLASS_NAME": "form-control",
+            "EMAIL_QRY_PLACEHOLDER": "Email",
             "INVALID_EMAIL_LIST": [
                 "f@domaineinvalide.com",
                 " ",
@@ -142,8 +142,8 @@
                 "???@polymtl.ca"
             ],
             "LIMIT_OF_RETRIES": 0,
-            "POLYSAFE_FORGOT_PASSWORD_URL": "http://localhost/polysafe_code/erp/users/forgot_password.php",
-            "RESET_BTN_CLASS_NAME": "btn btn-primary",
+            "POLYSAFE_FORGOT_PASSWORD_URL": "https://polysafe.polymtl.ca/users/forgot_password.php",
+            "RESET_BTN_VALUE": "Réinitialiser",
             "VALID_EMAIL_LIST": [
                 "poly.mtl@hotmail.ca",
                 "polymtl.del@gmail.com",

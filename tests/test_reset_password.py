@@ -19,8 +19,8 @@ class TestResetPassword(TestsInterface):
         self.__LIMIT_OF_RETRIES = None
         self.__EMAIL_QRY = None
         self.__RESET_BTN = None
-        self.__EMAIL_QRY_CLASS_NAME = None
-        self.__RESET_BTN_CLASS_NAME = None
+        self.__EMAIL_QRY_PLACEHOLDER = None
+        self.__RESET_BTN_VALUE = None
         self.__VALID_EMAIL_LIST = None
         self.__INVALID_EMAIL_LIST = None
 
@@ -65,20 +65,20 @@ class TestResetPassword(TestsInterface):
         self.__RESET_BTN = new_reset_btn
 
     @property
-    def email_qry_class_name(self) -> str:
-        return self.__EMAIL_QRY_CLASS_NAME
+    def email_qry_placeholder(self) -> str:
+        return self.__EMAIL_QRY_PLACEHOLDER
 
-    @email_qry_class_name.setter
-    def email_qry_class_name(self, new_email_qry_class_name: str) -> None:
-        self.__EMAIL_QRY_CLASS_NAME = new_email_qry_class_name
+    @email_qry_placeholder.setter
+    def email_qry_placeholder(self, new_email_qry_placeholder: str) -> None:
+        self.__EMAIL_QRY_PLACEHOLDER = new_email_qry_placeholder
 
     @property
-    def reset_btn_class_name(self) -> str:
-        return self.__RESET_BTN_CLASS_NAME
+    def reset_btn_value(self) -> str:
+        return self.__RESET_BTN_VALUE
 
-    @reset_btn_class_name.setter
-    def reset_btn_class_name(self, new_reset_btn_class_name: str) -> None:
-        self.__RESET_BTN_CLASS_NAME = new_reset_btn_class_name
+    @reset_btn_value.setter
+    def reset_btn_value(self, new_reset_btn_value: str) -> None:
+        self.__RESET_BTN_VALUE = new_reset_btn_value
 
     @property
     def valid_email_list(self) -> list:
@@ -109,10 +109,10 @@ class TestResetPassword(TestsInterface):
                 self.polysafe_forgot_password_url = \
                     self.jsondump[TEST_RESET_PASSWORD_REP][CONSTANTS_REP][POLYSAFE_FORGOT_PASSWORD_URL_REP]
                 self.limit_of_retries = self.jsondump[TEST_RESET_PASSWORD_REP][CONSTANTS_REP][LIMIT_OF_RETRIES_REP]
-                self.email_qry_class_name = \
-                    self.jsondump[TEST_RESET_PASSWORD_REP][CONSTANTS_REP][EMAIL_QRY_CLASS_NAME_REP]
-                self.reset_btn_class_name = \
-                    self.jsondump[TEST_RESET_PASSWORD_REP][CONSTANTS_REP][RESET_BTN_CLASS_NAME_REP]
+                self.email_qry_placeholder = \
+                    self.jsondump[TEST_RESET_PASSWORD_REP][CONSTANTS_REP][EMAIL_QRY_PLACEHOLDER_REP]
+                self.reset_btn_value = \
+                    self.jsondump[TEST_RESET_PASSWORD_REP][CONSTANTS_REP][RESET_BTN_VALUE_REP]
                 self.valid_email_list = self.jsondump[TEST_RESET_PASSWORD_REP][CONSTANTS_REP][VALID_EMAIL_LIST_REP]
                 self.invalid_email_list = self.jsondump[TEST_RESET_PASSWORD_REP][CONSTANTS_REP][INVALID_EMAIL_LIST_REP]
                 break_loop = True
@@ -131,7 +131,7 @@ class TestResetPassword(TestsInterface):
 
     def seek_error_box(self) -> bool:
         error_class_label = "alert alert-danger"
-        if self.driver.find_element_by_class_name(error_class_label) is None:  # No error box while loading page
+        if len(self.driver.find_elements_by_class_name(error_class_label)) == 0:  # No error box while loading page
             return False
         return True
 
@@ -149,37 +149,62 @@ class TestResetPassword(TestsInterface):
                         self.driver.get(self.polysafe_forgot_password_url)
                         print_header("RESET_PASSWORD", "Testing reset password functionality...")
                         print_header("RESET_PASSWORD", "Acquiring email querry & reset button...")
-                        self.email_qry = self.driver.find_element_by_class_name(self.email_qry_class_name)
-                        self.reset_btn = self.driver.find_element_by_class_name(self.reset_btn_class_name)
+
+                        input_placeholder_xpath: str = "//input[@placeholder='" + self.email_qry_placeholder + "']"
+                        self.email_qry = self.driver.find_element_by_xpath(input_placeholder_xpath)
+
+                        input_value_xpath = "//input[@value='" + self.reset_btn_value + "']"
+                        self.reset_btn = self.driver.find_element_by_xpath(input_value_xpath)
 
                         count = 0
+
                         for invalid_email in self.invalid_email_list:
+
                             print_header("RESET_PASSWORD", "Sending invalid email (" + str(count)
                                          + ")...")
-                            self.email_qry.send_keys(invalid_email)
-                            self.reset_btn.click()
+
+                            WebDriverWait(self.driver, 20). \
+                                until(EC.element_to_be_clickable((By.XPATH, input_placeholder_xpath))).\
+                                send_keys(invalid_email)
+
+                            WebDriverWait(self.driver, 20). \
+                                until(EC.element_to_be_clickable((By.XPATH, input_value_xpath))).click()
+
                             if self.seek_error_box():
                                 print_success("RESET_PASSWORD", "Invalid email (" + str(count) +
                                               ") passed!")
+
                             else:
                                 print_failure("ACCOUNT_CREATION", "Invalid email (" + str(count) +
                                               ") failed!")
+
                                 self.driver.get(self.polysafe_forgot_password_url)
+
                             count += 1
 
                         count = 0
+
                         for valid_email in self.valid_email_list:
                             print_header("RESET_PASSWORD", "Sending valid email (" + str(count)
                                          + ")...")
-                            self.email_qry.send_keys(valid_email)
-                            self.reset_btn.click()
+
+                            WebDriverWait(self.driver, 20). \
+                                until(EC.element_to_be_clickable((By.XPATH, input_placeholder_xpath))). \
+                                send_keys(valid_email)
+
+                            WebDriverWait(self.driver, 20). \
+                                until(EC.element_to_be_clickable((By.XPATH, input_value_xpath))).click()
+
                             if self.seek_error_box():
                                 print_failure("ACCOUNT_CREATION", "Valid email (" + str(count) +
                                               ") failed!")
+
                             else:
                                 print_success("RESET_PASSWORD", "Valid email (" + str(count) +
                                               ") passed!")
+
                                 self.driver.get(self.polysafe_forgot_password_url)
+
                             count += 1
 
                         print_success("RESET_PASSWORD", "All tests passed!")
