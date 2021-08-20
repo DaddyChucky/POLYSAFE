@@ -4,7 +4,7 @@
             "ERROR_CLASS_LABEL": "alert alert-danger alert-dismissible"
         },
         "DEV_CREDENTIALS": {
-            "EMAIL": "charles.delafontaine@gmail.com",
+            "EMAIL": "charles.de-lafontaine@polymtl.ca",
             "PASSWORD": "Charles1"
         }
     },
@@ -101,7 +101,7 @@
             "MY_CALENDAR_LNK_LABEL": "Mon calendrier",
             "NEW_RESERVATION_LNK_LABEL": "Nouvelle réservation",
             "PASSWORD_ID": "password",
-            "POLYSAFE_LOGIN_URL": "http://localhost/polysafe_code/erp/users/login.php",
+            "POLYSAFE_LOGIN_URL": "https://polysafe.polymtl.ca/users/login.php",
             "PRINTING_LNK_LABEL": "Impression 3D Ultimaker",
             "PURCHASE_DETAILS_BTN_LABEL": "Détails",
             "RESERVE_BTN_LABEL": "Réserver",

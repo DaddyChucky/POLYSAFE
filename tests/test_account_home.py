@@ -121,7 +121,7 @@ class TestAccountHome(TestsInterface):
 
     @property
     def account_registrar_verified(self) -> str:
-        return self.__CONNECTION_BTN
+        return self.__ACCOUNT_REGISTRAR_VERIFIED
 
     @account_registrar_verified.setter
     def account_registrar_verified(self, new_account_registrar_verified: str) -> None:
@@ -400,9 +400,10 @@ class TestAccountHome(TestsInterface):
                         print_header("POLYSAFE_LOGIN", "Clicking connection button...")
                         print_warning("POLYSAFE_LOGIN", "Slow down expected.")
                         self.connection_btn.click()
+                        xpath_account_registrar_verified: str = "//*[text()='" + \
+                                                                self.account_registrar_verified + "']"
 
-                        if self.driver.find_element_by_xpath(
-                                ".//*[contains(text(), self.account_registrar_verified)]") is not None:
+                        if len(self.driver.find_elements_by_xpath(xpath_account_registrar_verified)) != 0:
                             print_success("POLYSAFE_LOGIN", "Successfully logged in!")
 
                         else:
@@ -410,22 +411,24 @@ class TestAccountHome(TestsInterface):
 
                         print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Getting buttons...")
                         self.formation_btn = self.driver.find_element_by_partial_link_text(self.formation_btn_label)
-                        self.reserve_btn = self.driver.find_element_by_xpath('//button[text()="' +
-                                                                             self.reserve_btn_label +
-                                                                             '"]')
+                        xpath_reserve_btn: str = "//button[text()='" + self.reserve_btn_label + "']"
+                        self.reserve_btn = self.driver.find_element_by_xpath(xpath_reserve_btn)
                         self.contact_btn = self.driver.find_element_by_partial_link_text(self.contact_btn_label)
                         self.calendar_lnk = self.driver.find_elements_by_xpath("//a[text()=' Mon calendrier']")
-
-
                         self.membership_details_btn = \
                             self.driver.find_element_by_partial_link_text(self.membership_details_btn_label)
                         self.billing_details_btn = \
                             self.driver.find_element_by_partial_link_text(self.billing_details_btn_label)
                         self.purchase_details_btn = \
                             self.driver.find_element_by_partial_link_text(self.purchase_details_btn_label)
+                        self.new_reservation_lnk = self.driver.find_elements_by_xpath("//h5[text()=' Nouvelle réservation']")
+                        self.new_reservation_lnk.click()
+                        print("Working")
+                        # self.new_reservation_lnk = \
+                        #     self.driver.find_element_by_partial_link_text(self.new_reservation_lnk_label)
+
                         self.my_calendar_lnk = self.driver.find_element_by_partial_link_text(self.my_calendar_lnk_label)
-                        self.new_reservation_lnk = \
-                            self.driver.find_element_by_partial_link_text(self.new_reservation_lnk_label)
+
                         self.printing_lnk = \
                             self.driver.find_element_by_partial_link_text(self.printing_lnk_label)
                         self.openings_lnk = self.driver.find_element_by_partial_link_text(self.openings_lnk_label)
