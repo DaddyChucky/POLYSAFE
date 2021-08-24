@@ -128,180 +128,12 @@ class TestAccountHome(TestsInterface):
         self.__ACCOUNT_REGISTRAR_VERIFIED = new_account_registrar_verified
 
     @property
-    def formation_btn(self):
-        return self.__FORMATION_BTN
-
-    @formation_btn.setter
-    def formation_btn(self, new_formation_btn) -> None:
-        self.__FORMATION_BTN = new_formation_btn
-
-    @property
-    def reserve_btn(self):
-        return self.__RESERVE_BTN
-
-    @reserve_btn.setter
-    def reserve_btn(self, new_reserve_btn) -> None:
-        self.__RESERVE_BTN = new_reserve_btn
-
-    @property
-    def contact_btn(self):
-        return self.__CONTACT_BTN
-
-    @contact_btn.setter
-    def contact_btn(self, new_contact_btn) -> None:
-        self.__CONTACT_BTN = new_contact_btn
-
-    @property
-    def calendar_btn(self):
-        return self.__CALENDAR_BTN
-
-    @calendar_btn.setter
-    def calendar_btn(self, new_calendar_btn) -> None:
-        self.__CALENDAR_BTN = new_calendar_btn
-
-    @property
-    def membership_details_btn(self):
-        return self.__MEMBERSHIP_DETAILS_BTN
-
-    @membership_details_btn.setter
-    def membership_details_btn(self, new_membership_details_btn) -> None:
-        self.__MEMBERSHIP_DETAILS_BTN = new_membership_details_btn
-
-    @property
-    def billing_details_btn(self):
-        return self.__BILLING_DETAILS_BTN
-
-    @billing_details_btn.setter
-    def billing_details_btn(self, new_billing_details_btn) -> None:
-        self.__BILLING_DETAILS_BTN = new_billing_details_btn
-
-    @property
-    def purchase_details_btn(self):
-        return self.__PURCHASE_DETAILS_BTN
-
-    @purchase_details_btn.setter
-    def purchase_details_btn(self, new_purchase_details_btn) -> None:
-        self.__PURCHASE_DETAILS_BTN = new_purchase_details_btn
-
-    @property
-    def formation_btn_label(self) -> str:
-        return self.__FORMATION_BTN_LABEL
-
-    @formation_btn_label.setter
-    def formation_btn_label(self, new_formation_btn_label: str) -> None:
-        self.__FORMATION_BTN_LABEL = new_formation_btn_label
-
-    @property
-    def reserve_btn_label(self) -> str:
-        return self.__RESERVE_BTN_LABEL
-
-    @reserve_btn_label.setter
-    def reserve_btn_label(self, new_reserve_btn_label: str) -> None:
-        self.__RESERVE_BTN_LABEL = new_reserve_btn_label
-
-    @property
-    def contact_btn_label(self) -> str:
-        return self.__CONTACT_BTN_LABEL
-
-    @contact_btn_label.setter
-    def contact_btn_label(self, new_contact_btn_label: str) -> None:
-        self.__CONTACT_BTN_LABEL = new_contact_btn_label
-
-    @property
-    def calendar_lnk_label(self) -> str:
-        return self.__CALENDAR_LNK_LABEL
-
-    @calendar_lnk_label.setter
-    def calendar_lnk_label(self, new_calendar_lnk_label: str) -> None:
-        self.__CALENDAR_LNK_LABEL = new_calendar_lnk_label
-
-    @property
-    def membership_details_btn_label(self) -> str:
-        return self.__MEMBERSHIP_DETAILS_BTN_LABEL
-
-    @membership_details_btn_label.setter
-    def membership_details_btn_label(self, new_membership_details_btn_label: str) -> None:
-        self.__MEMBERSHIP_DETAILS_BTN_LABEL = new_membership_details_btn_label
-
-    @property
-    def billing_details_btn_label(self) -> str:
-        return self.__BILLING_DETAILS_BTN_LABEL
-
-    @billing_details_btn_label.setter
-    def billing_details_btn_label(self, new_billing_details_btn_label: str) -> None:
-        self.__BILLING_DETAILS_BTN_LABEL = new_billing_details_btn_label
-
-    @property
-    def purchase_details_btn_label(self) -> str:
-        return self.__PURCHASE_DETAILS_BTN_LABEL
-
-    @purchase_details_btn_label.setter
-    def purchase_details_btn_label(self, new_purchase_details_btn_label: str) -> None:
-        self.__PURCHASE_DETAILS_BTN_LABEL = new_purchase_details_btn_label
-
-    @property
     def window_current_id(self) -> int:
         return self.__CURR_WINDOW_ID
 
     @window_current_id.setter
     def window_current_id(self, new_window_current_id: int) -> None:
         self.__CURR_WINDOW_ID = new_window_current_id
-
-    @property
-    def my_calendar_lnk_label(self) -> str:
-        return self.__MY_CALENDAR_LNK_LABEL
-
-    @my_calendar_lnk_label.setter
-    def my_calendar_lnk_label(self, new_my_calendar_lnk_label: str) -> None:
-        self.__MY_CALENDAR_LNK_LABEL = new_my_calendar_lnk_label
-
-    @property
-    def new_reservation_lnk_label(self) -> str:
-        return self.__NEW_RESERVATION_LNK_LABEL
-
-    @new_reservation_lnk_label.setter
-    def new_reservation_lnk_label(self, new_new_reservation_lnk_label: str) -> None:
-        self.__NEW_RESERVATION_LNK_LABEL = new_new_reservation_lnk_label
-
-    @property
-    def printing_lnk_label(self) -> str:
-        return self.__PRINTING_LNK_LABEL
-
-    @printing_lnk_label.setter
-    def printing_lnk_label(self, new_printing_lnk_label: str) -> None:
-        self.__PRINTING_LNK_LABEL = new_printing_lnk_label
-
-    @property
-    def openings_lnk_label(self) -> str:
-        return self.calendar_lnk_label.capitalize()
-
-    @openings_lnk_label.setter
-    def openings_lnk_label(self, new_openings_lnk_label: str) -> None:
-        self.calendar_lnk_label = new_openings_lnk_label.lower()
-
-    @property
-    def live_printing_lnk_label(self) -> str:
-        return self.__LIVE_PRINTING_LNK_LABEL
-
-    @live_printing_lnk_label.setter
-    def live_printing_lnk_label(self, new_live_printing_lnk_label: str) -> None:
-        self.__LIVE_PRINTING_LNK_LABEL = new_live_printing_lnk_label
-
-    @property
-    def reserve_formation_lnk_label(self) -> str:
-        return self.__RESERVE_FORMATION_LNK_LABEL
-
-    @reserve_formation_lnk_label.setter
-    def reserve_formation_lnk_label(self, new_reserve_formation_lnk_label: str) -> None:
-        self.__RESERVE_FORMATION_LNK_LABEL = new_reserve_formation_lnk_label
-
-    @property
-    def global_calendar_lnk_label(self) -> str:
-        return self.__GLOBAL_CALENDAR_LNK_LABEL
-
-    @global_calendar_lnk_label.setter
-    def global_calendar_lnk_label(self, new_global_calendar_lnk_label: str) -> None:
-        self.__GLOBAL_CALENDAR_LNK_LABEL = new_global_calendar_lnk_label
 
     """
         Verify that json contains all constants for TestMainpage 
@@ -321,31 +153,6 @@ class TestAccountHome(TestsInterface):
                 self.connection_btn_id = self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][CONNECTION_BTN_ID_REP]
                 self.account_registrar_verified = \
                     self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][ACCOUNT_REGISTRAR_VERIFIED_REP]
-                self.formation_btn_label = \
-                    self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][FORMATION_BTN_LABEL_REP]
-                self.reserve_btn_label = self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][RESERVE_BTN_LABEL_REP]
-                self.contact_btn_label = self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][CONTACT_BTN_LABEL_REP]
-                self.calendar_lnk_label = self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][CALENDAR_LNK_LABEL_REP]
-                self.membership_details_btn_label = \
-                    self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][MEMBERSHIP_DETAILS_BTN_LABEL_REP]
-                self.billing_details_btn_label = \
-                    self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][BILLING_DETAILS_BTN_LABEL_REP]
-                self.purchase_details_btn_label = \
-                    self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][PURCHASE_DETAILS_BTN_LABEL_REP]
-                self.my_calendar_lnk_label = \
-                    self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][MY_CALENDAR_LNK_LABEL_REP]
-                self.new_reservation_lnk_label = \
-                    self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][NEW_RESERVATION_LNK_LABEL_REP]
-                self.printing_lnk_label = \
-                    self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][PRINTING_LNK_LABEL_REP]
-                self.openings_lnk_label = \
-                    self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][CALENDAR_LNK_LABEL_REP]
-                self.live_printing_lnk_label = \
-                    self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][LIVE_PRINTING_LNK_LABEL_REP]
-                self.reserve_formation_lnk_label = \
-                    self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][RESERVE_LNK_LABEL_REP]
-                self.global_calendar_lnk_label = \
-                    self.jsondump[TEST_ACCOUNT_HOME_REP][CONSTANTS_REP][GLOBAL_CALENDAR_REP]
 
                 break_loop = True
 
@@ -409,249 +216,43 @@ class TestAccountHome(TestsInterface):
                         else:
                             print_failure("POLYSAFE_LOGIN", "Cannot login in developer's account.")
 
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Getting buttons...")
-                        self.formation_btn = self.driver.find_element_by_partial_link_text(self.formation_btn_label)
-                        xpath_reserve_btn: str = "//button[text()='" + self.reserve_btn_label + "']"
-                        self.reserve_btn = self.driver.find_element_by_xpath(xpath_reserve_btn)
-                        self.contact_btn = self.driver.find_element_by_partial_link_text(self.contact_btn_label)
-                        self.calendar_lnk = self.driver.find_elements_by_xpath("//a[text()=' Mon calendrier']")
-                        self.membership_details_btn = \
-                            self.driver.find_element_by_partial_link_text(self.membership_details_btn_label)
-                        self.billing_details_btn = \
-                            self.driver.find_element_by_partial_link_text(self.billing_details_btn_label)
-                        self.purchase_details_btn = \
-                            self.driver.find_element_by_partial_link_text(self.purchase_details_btn_label)
-                        self.new_reservation_lnk = self.driver.find_elements_by_xpath("//h5[text()=' Nouvelle réservation']")
-                        self.new_reservation_lnk.click()
-                        print("Working")
-                        # self.new_reservation_lnk = \
-                        #     self.driver.find_element_by_partial_link_text(self.new_reservation_lnk_label)
+                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Verifying page linking...")
 
-                        self.my_calendar_lnk = self.driver.find_element_by_partial_link_text(self.my_calendar_lnk_label)
+                        dead_urls = ["users/logout.php"]  # Escape logout
 
-                        self.printing_lnk = \
-                            self.driver.find_element_by_partial_link_text(self.printing_lnk_label)
-                        self.openings_lnk = self.driver.find_element_by_partial_link_text(self.openings_lnk_label)
-                        self.live_printing_lnk = \
-                            self.driver.find_element_by_partial_link_text(self.live_printing_lnk_label)
-                        self.reserve_formation_lnk = \
-                            self.driver.find_element_by_partial_link_text(self.reserve_formation_lnk_label)
-                        self.global_calendar_lnk = \
-                            self.driver.find_element_by_partial_link_text(self.global_calendar_lnk_label)
+                        # Adding global testing url to all dead urls
+                        for i in range(len(dead_urls)):
+                            dead_urls[i] = TESTING_URL_REP + dead_urls[i]
 
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing buttons linking...")
+                        dead_urls.append(self.polysafe_login_url)
 
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing formation button linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.formation_btn.click()
+                        for i in range(len(self.driver.find_elements_by_xpath("//a[@href]"))):
+                            href = self.driver.find_elements_by_xpath("//a[@href]")[i].get_attribute("href")
 
-                        self.switch_current_window()
+                            try:
+                                print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing linking #" +
+                                             str(i) + " (" + href + ")")
+                                print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Loading page, delay expected...")
 
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Formation button link is invalid.")
+                                if href not in dead_urls:
+                                    self.driver.get(href)
 
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Formation button link is valid!")
+                                if len(self.driver.find_elements_by_xpath(ERROR_404_XPATH)) == 0:
+                                    print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Successfully tested linking #" +
+                                                  str(i) + " (" + href + ")")
+                                else:
+                                    print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Link #" +
+                                                  str(i) + " (" + href + ") is invalid!")
 
-                        self.close_current_window()
+                            except Exception:
+                                exc_type, value, traceback = sys.exc_info()
+                                print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Error while testing linking #" +
+                                              str(i) + " (" + href + ")" + " Exception: " + exc_type.__name__)
 
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing reserve button linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.reserve_btn.click()
+                            print_warning("POLYSAFE_TEST_ACCOUNT_HOME",
+                                          "Redirecting to account home page, delay expected...")
+                            self.driver.get(self.polysafe_login_url)
 
-                        self.switch_current_window()
-
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Reserve button link is invalid.")
-
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Reserve button link is valid!")
-
-                        self.close_current_window()
-
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing contact button linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.contact_btn.click()
-
-                        self.switch_current_window()
-
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Contact button link is invalid.")
-
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Contact button link is valid!")
-
-                        self.close_current_window()
-
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing calendar button linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.calendar_btn.click()
-
-                        self.switch_current_window()
-
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Calendar button link is invalid.")
-
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Calendar button link is valid!")
-
-                        self.close_current_window()
-
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing membership button linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.membership_details_btn.click()
-
-                        self.switch_current_window()
-
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Membership details button link is invalid.")
-
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Membership details button link is valid!")
-
-                        self.close_current_window()
-
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing billing details button linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.billing_details_btn.click()
-
-                        self.switch_current_window()
-
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Billing details button link is invalid.")
-
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Billing details button link is valid!")
-
-                        self.close_current_window()
-
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing purchase details button linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.purchase_details_btn.click()
-
-                        self.switch_current_window()
-
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Purchase details button link is invalid.")
-
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Purchase details button link is valid!")
-
-                        self.close_current_window()
-
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing my calendar linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.my_calendar_lnk.click()
-
-                        self.switch_current_window()
-
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "My calendar link is invalid.")
-
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "My calendar link is valid!")
-
-                        self.close_current_window()
-
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing new reservation linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.new_reservation_lnk.click()
-
-                        self.switch_current_window()
-
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "New reservation link is invalid.")
-
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "New reservation link is valid!")
-
-                        self.close_current_window()
-
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing printing linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.printing_lnk.click()
-
-                        self.switch_current_window()
-
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Printing link is invalid.")
-
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Printing link is valid!")
-
-                        self.close_current_window()
-
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing openings linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.openings_lnk.click()
-
-                        self.switch_current_window()
-
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Openings link is invalid.")
-
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Openings link is valid!")
-
-                        self.close_current_window()
-
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing live printing linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.live_printing_lnk.click()
-
-                        self.switch_current_window()
-
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Live printing link is invalid.")
-
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Live printing link is valid!")
-
-                        self.close_current_window()
-
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing reserve a formation linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.reserve_formation_lnk.click()
-
-                        self.switch_current_window()
-
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Reserve formation link is invalid.")
-
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Reserve formation link is valid!")
-
-                        self.close_current_window()
-
-                        print_header("POLYSAFE_TEST_ACCOUNT_HOME", "Testing global calendar linking...")
-                        print_warning("POLYSAFE_TEST_ACCOUNT_HOME", "Slow down expected.")
-                        self.global_calendar_lnk.click()
-
-                        self.switch_current_window()
-
-                        if self.driver.find_element_by_xpath("//*[contains(text(), ERROR_404)]") \
-                                is not None:
-                            print_failure("POLYSAFE_TEST_ACCOUNT_HOME", "Global calendar link is invalid.")
-
-                        else:
-                            print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Global calendar link is valid!")
-
-                        self.close_current_window()
-
-                        print_success("POLYSAFE_TEST_ACCOUNT_HOME", "Tested every link!")
                         print_success("LOGIN_PAGE", "All tests passed!")
 
                     except Exception:

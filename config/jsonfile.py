@@ -133,20 +133,7 @@ class JsonFile:
                             EMAIL_ID_REP: "username",
                             PASSWORD_ID_REP: "password",
                             CONNECTION_BTN_ID_REP: "next_button",
-                            ACCOUNT_REGISTRAR_VERIFIED_REP: "Bienvenue sur votre espace de création !",
-                            FORMATION_BTN_LABEL_REP: "Formation SST",
-                            RESERVE_BTN_LABEL_REP: "Réserver",
-                            CONTACT_BTN_LABEL_REP: "Nous contacter",
-                            MEMBERSHIP_DETAILS_BTN_LABEL_REP: "Détails",
-                            BILLING_DETAILS_BTN_LABEL_REP: "Détails",
-                            PURCHASE_DETAILS_BTN_LABEL_REP: "Détails",
-                            CALENDAR_LNK_LABEL_REP: "horaires d'ouverture",
-                            MY_CALENDAR_LNK_LABEL_REP: "Mon calendrier",
-                            NEW_RESERVATION_LNK_LABEL_REP: "Nouvelle réservation",
-                            PRINTING_LNK_LABEL_REP: "Impression 3D Ultimaker",
-                            LIVE_PRINTING_LNK_LABEL_REP: "Live impression 3D",
-                            RESERVE_LNK_LABEL_REP: "Réserver une formation",
-                            GLOBAL_CALENDAR_REP: "Calendrier global"
+                            ACCOUNT_REGISTRAR_VERIFIED_REP: "Bienvenue sur votre espace de création !"
                         }
                 }
 
