@@ -15,7 +15,7 @@ import os
 
 class JsonFile:
     def __init__(self,
-                 file_path="C:\\wamp64\\www\\POLYSAFE\\data\\tests_data.json",
+                 file_path=".\\data\\tests_data.json",
                  file_mode_create='w',
                  file_mode_read='r',
                  file_encoding='utf-8',
