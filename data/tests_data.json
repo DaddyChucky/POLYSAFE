@@ -4,7 +4,7 @@
             "ERROR_CLASS_LABEL": "alert alert-danger alert-dismissible"
         },
         "DEV_CREDENTIALS": {
-            "EMAIL": "charles.de-lafontaine@polymtl.ca",
+            "EMAIL": "charles.delafontaine@gmail.com",
             "PASSWORD": "Charles1"
         }
     },
@@ -55,7 +55,7 @@
             "LEGAL_LNK": "Mention légale",
             "LIMIT_OF_RETRIES": 0,
             "PASSWORD_ID": "password",
-            "POLYSAFE_CREATE_ACCOUNT_URL": "http://localhost/polysafe_code/erp/users/join.php",
+            "POLYSAFE_CREATE_ACCOUNT_URL": "https://polysafe.polymtl.ca//users/join.php",
             "USERNAME_ID": "username",
             "VALID_CELLPHONE_NUMBER_LIST": [
                 "1234567890",
@@ -88,24 +88,11 @@
         "ACTIVE": true,
         "CONSTANTS": {
             "ACCOUNT_REGISTRAR_VERIFIED": "Bienvenue sur votre espace de création !",
-            "BILLING_DETAILS_BTN_LABEL": "Détails",
-            "CALENDAR_BTN_LABEL": "horaires d'ouverture",
             "CONNECTION_BTN_ID": "next_button",
-            "CONTACT_BTN_LABEL": "Nous contacter",
             "EMAIL_ID": "username",
-            "FORMATION_BTN_LABEL": "Formation SST",
-            "GLOBAL_CALENDAR": "Calendrier global",
             "LIMIT_OF_RETRIES": 0,
-            "LIVE_PRINTING_LNK_LABEL": "Live impression 3D",
-            "MEMBERSHIP_DETAILS_BTN_LABEL": "Détails",
-            "MY_CALENDAR_LNK_LABEL": "Mon calendrier",
-            "NEW_RESERVATION_LNK_LABEL": "Nouvelle réservation",
             "PASSWORD_ID": "password",
-            "POLYSAFE_LOGIN_URL": "https://polysafe.polymtl.ca/users/login.php",
-            "PRINTING_LNK_LABEL": "Impression 3D Ultimaker",
-            "PURCHASE_DETAILS_BTN_LABEL": "Détails",
-            "RESERVE_BTN_LABEL": "Réserver",
-            "RESERVE_LNK_LABEL": "Réserver une formation"
+            "POLYSAFE_LOGIN_URL": "https://polysafe.polymtl.ca//users/login.php"
         }
     },
     "TEST_MAINPAGE_INDEX": {
@@ -120,13 +107,13 @@
             "CONNECTION_TEXT": "Connexion »",
             "CREATE_ACCOUNT_LNK_NAME": "Créer un compte",
             "EMAIL_ID": "username",
-            "EXPECTED_CONNECTION_URL": "http://localhost/polysafe_code/erp/users/login.php",
+            "EXPECTED_CONNECTION_URL": "https://polysafe.polymtl.ca//users/login.php",
             "FORGOT_BUTTON_LNK_NAME": "Mot de passe oub",
             "INVALID_EMAIL_EXAMPLE": "invalid.email@gmail.ca",
             "INVALID_PASSWORD_EXAMPLE": "password1234",
             "LIMIT_OF_RETRIES": 0,
             "PASSWORD_ID": "password",
-            "POLYSAFE_MAINPAGE_URL": "http://localhost/polysafe_code/erp/index.php",
+            "POLYSAFE_MAINPAGE_URL": "https://polysafe.polymtl.ca//index.php",
             "SUPPORT_LNK_NAME": "Support"
         },
         "SEND_FAKE_LOGIN_CREDENTIALS": true
@@ -142,7 +129,7 @@
                 "???@polymtl.ca"
             ],
             "LIMIT_OF_RETRIES": 0,
-            "POLYSAFE_FORGOT_PASSWORD_URL": "https://polysafe.polymtl.ca/users/forgot_password.php",
+            "POLYSAFE_FORGOT_PASSWORD_URL": "https://polysafe.polymtl.ca//users/forgot_password.php",
             "RESET_BTN_VALUE": "Réinitialiser",
             "VALID_EMAIL_LIST": [
                 "poly.mtl@hotmail.ca",

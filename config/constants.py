@@ -8,10 +8,14 @@
 
 from selenium.webdriver.chrome.options import Options
 
+# Are we debugging? (shows tab execution)
+DEBUG = False
+
 # Switch between local or online testing
 # Online: https://polysafe.polymtl.ca/
-# Offline (e.g.): http://localhost/polysafe_code/erp
+# Offline (e.g.): http://localhost/polysafe_code/erp/
 TESTING_URL_REP = "https://polysafe.polymtl.ca/"
+
 ERROR_404 = "The requested URL was not found on this server."
 ERROR_404_XPATH = "//*[text()='" + ERROR_404 + "']"
 MULTI_THREADING_OPTIONS = ['m', 'M']
@@ -27,10 +31,12 @@ ACCOUNT_HOME_TEST_ID = 4
 TESTS = [CONNECTION_TEST, CREATION_TEST, RESET_PASSWORD_TEST, ACCOUNT_HOME_TEST]
 TEST_QUIT_OPTIONS = ['quit', 'QUIT', 'q', 'Q']
 OPTIONS = Options()
+
 # Add/remove options for debug
-# OPTIONS.add_argument("--headless")
-# OPTIONS.add_argument("--no-sandbox")
-# OPTIONS.add_argument("--disable-dev-shm-usage")
+if not DEBUG:
+    OPTIONS.add_argument("--headless")
+    OPTIONS.add_argument("--no-sandbox")
+    OPTIONS.add_argument("--disable-dev-shm-usage")
 
 # overall constants
 CONSTANTS_REP = "CONSTANTS"

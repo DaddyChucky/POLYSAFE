@@ -54,10 +54,10 @@ class JsonFile:
                     CHECK_ERROR_GENERATION_REP: True,
                     CONSTANTS_REP:
                         {
-                            POLYSAFE_MAINPAGE_URL_REP: TESTING_URL_REP + "/index.php",
+                            POLYSAFE_MAINPAGE_URL_REP: TESTING_URL_REP + "index.php",
                             CONNECTION_TEXT_REP: "Connexion »",
                             LIMIT_OF_RETRIES_REP: 0,
-                            EXPECTED_CONNECTION_URL_REP: TESTING_URL_REP + "/users/login.php",
+                            EXPECTED_CONNECTION_URL_REP: TESTING_URL_REP + "users/login.php",
                             EMAIL_ID_REP: "username",
                             PASSWORD_ID_REP: "password",
                             CONNECTION_BTN_ID_REP: "next_button",
@@ -95,7 +95,7 @@ class JsonFile:
                             ACCOUNT_CREATION_CONTRACT_LNK_REP: "Contrat d'adhésion",
                             CHART_OF_PAYMENT_LNK_REP: "Charte de paiement",
                             LEGAL_LNK_REP: "Mention légale",
-                            POLYSAFE_CREATE_ACCOUNT_URL_REP: TESTING_URL_REP + "/users/join.php",
+                            POLYSAFE_CREATE_ACCOUNT_URL_REP: TESTING_URL_REP + "users/join.php",
                             USERNAME_ID_REP: "username",
                             FIRST_NAME_ID_REP: "fname",
                             LAST_NAME_ID_REP: "lname",
@@ -116,7 +116,7 @@ class JsonFile:
                         {
                             LIMIT_OF_RETRIES_REP: 0,
                             EMAIL_QRY_PLACEHOLDER_REP: "Email",
-                            POLYSAFE_FORGOT_PASSWORD_URL_REP: TESTING_URL_REP + "/users/forgot_password.php",
+                            POLYSAFE_FORGOT_PASSWORD_URL_REP: TESTING_URL_REP + "users/forgot_password.php",
                             RESET_BTN_VALUE_REP: "Réinitialiser",
                             VALID_EMAIL_LIST_REP: ["poly.mtl@hotmail.ca", "polymtl.del@gmail.com",
                                                    "charbel-gendron@polymtl.ca"],
@@ -129,7 +129,7 @@ class JsonFile:
                     CONSTANTS_REP:
                         {
                             LIMIT_OF_RETRIES_REP: 0,
-                            POLYSAFE_LOGIN_URL_REP: TESTING_URL_REP + "/users/login.php",
+                            POLYSAFE_LOGIN_URL_REP: TESTING_URL_REP + "users/login.php",
                             EMAIL_ID_REP: "username",
                             PASSWORD_ID_REP: "password",
                             CONNECTION_BTN_ID_REP: "next_button",

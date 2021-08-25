@@ -542,7 +542,7 @@ class TestCreation(TestsInterface):
 
                             self.switch_current_window()
 
-                            if len(self.driver.find_elements_by_xpath("//*[text()='ERROR_404']")) == 0:
+                            if len(self.driver.find_elements_by_xpath(ERROR_404_XPATH)) == 0:
                                 print_success("ACCOUNT_CREATION", "Contract button link is valid!")
                             else:
                                 print_failure("ACCOUNT_CREATION", "Contract button link is invalid.")
@@ -566,7 +566,7 @@ class TestCreation(TestsInterface):
 
                             self.switch_current_window()
 
-                            if len(self.driver.find_elements_by_xpath("//*[text()='ERROR_404']")) == 0:
+                            if len(self.driver.find_elements_by_xpath(ERROR_404_XPATH)) == 0:
                                 print_success("ACCOUNT_CREATION", "Contract button link is valid!")
                             else:
                                 print_failure("ACCOUNT_CREATION", "Contract button link is invalid.")
@@ -590,7 +590,7 @@ class TestCreation(TestsInterface):
 
                             self.switch_current_window()
 
-                            if len(self.driver.find_elements_by_xpath("//*[text()='ERROR_404']")) == 0:
+                            if len(self.driver.find_elements_by_xpath(ERROR_404_XPATH)) == 0:
                                 print_success("ACCOUNT_CREATION", "Contract button link is valid!")
                             else:
                                 print_failure("ACCOUNT_CREATION", "Contract button link is invalid.")
