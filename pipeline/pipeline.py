@@ -5,6 +5,13 @@
     Author:         Charles De Lafontaine
     Last edition:   07/25/2021
 """
+
+# Add Python project to path
+import os
+import sys
+sys.path.insert(0, os.path.abspath(
+    os.path.join(os.path.dirname(__file__), '..')))
+
 from start.start_connection_test import *
 from start.start_creation_test import *
 from start.start_reset_password_test import *
