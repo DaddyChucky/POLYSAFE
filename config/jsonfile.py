@@ -37,8 +37,8 @@ class JsonFile:
                 {
                     DEV_CREDENTIALS_REP:
                         {
-                            EMAIL_REP: "charles.delafontaine@gmail.com",
-                            PASSWORD_REP: "Charles1"
+                            EMAIL_REP: "email-is-no-longer-available@gmail.com",
+                            PASSWORD_REP: "nicetry101"
                         },
                     CONSTANTS_REP:
                         {
