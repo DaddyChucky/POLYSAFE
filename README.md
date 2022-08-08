@@ -1,5 +1,13 @@
 # POLYSAFE
 
-Polyfab/Polysafe Website development and test suite scraper - Polytechnique Montréal.
+## [EN] Description:
+- Polysafe test suite for Polyfab @ Polytechnique Montréal.
 
-COPYRIGHT: © DE LAFONTAINE, Charles. All Rights Reserved. Any distribution, idea or code replica, is strictly prohibited.
+## [FR] Description:
+- Suite de tests de Polysafe pour le Polyfab @ Polytechnique Montréal.
+
+## Author / Auteur:
+- Charles De Lafontaine
+
+COPYRIGHT: 
+© DE LAFONTAINE, Charles. All Rights Reserved. Any distribution, idea or code replica, is strictly prohibited.
